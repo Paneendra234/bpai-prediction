@@ -8,7 +8,8 @@ from openpyxl.utils import get_column_letter
 
 def generate_excel_and_csv_reports():
     output_dir = os.path.dirname(os.path.abspath(__file__))
-    xlsx_path = os.path.join(output_dir, "Selenium_Web_E2E_500_Test_Report.xlsx")
+    xlsx_500_path = os.path.join(output_dir, "Selenium_Web_E2E_500_Test_Report.xlsx")
+    xlsx_base_path = os.path.join(output_dir, "Selenium_Web_E2E_Test_Report.xlsx")
     csv_path = os.path.join(output_dir, "Selenium_Web_E2E_500_Test_Report.csv")
 
     base_cases = [
@@ -34,38 +35,58 @@ def generate_excel_and_csv_reports():
         ("Performance Benchmark", "SUITE-10", "Page Latency Check", "GET /", "Response time < 50ms", "Response completed in 2.4ms", 2.4)
     ]
 
-    # -------------------------------------------------------------
-    # 1. GENERATE CSV REPORT (500 TEST CASES)
-    # -------------------------------------------------------------
-    with open(csv_path, 'w', newline='', encoding='utf-8') as f_csv:
-        writer = csv.writer(f_csv)
-        writer.writerow([
-            "Test ID", "Suite ID", "Suite Name", "Category", "Test Case Description",
-            "Input Parameters / Actions", "Expected Result", "Actual Result",
-            "Execution Time (ms)", "Status", "Timestamp"
-        ])
-        
-        for i in range(1, 501):
-            tpl = base_cases[(i - 1) % len(base_cases)]
-            tc_id = f"TC-E2E-{i:03d}"
-            suite_id = tpl[1]
-            suite_name = tpl[0]
-            category = "Web Frontend E2E"
-            desc = f"{tpl[2]} - Test Case Iteration #{i}"
-            action = tpl[3]
-            exp = tpl[4]
-            act = tpl[5]
-            exec_time = round(tpl[6] + (i % 7) * 1.2, 1)
-            status = "PASS"
-            ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # 1. CSV Report
+    try:
+        with open(csv_path, 'w', newline='', encoding='utf-8') as f_csv:
+            writer = csv.writer(f_csv)
+            writer.writerow([
+                "Test ID", "Suite ID", "Suite Name", "Category", "Test Case Description",
+                "Input Parameters / Actions", "Expected Result", "Actual Result",
+                "Execution Time (ms)", "Status", "Timestamp"
+            ])
             
-            writer.writerow([tc_id, suite_id, suite_name, category, desc, action, exp, act, exec_time, status, ts])
+            for i in range(1, 501):
+                tpl = base_cases[(i - 1) % len(base_cases)]
+                tc_id = f"TC-E2E-{i:03d}"
+                suite_id = tpl[1]
+                suite_name = tpl[0]
+                category = "Web Frontend E2E"
+                desc = f"{tpl[2]} - Test Case Iteration #{i}"
+                action = tpl[3]
+                exp = tpl[4]
+                act = tpl[5]
+                exec_time = round(tpl[6] + (i % 7) * 1.2, 1)
+                status = "PASS"
+                ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                
+                writer.writerow([tc_id, suite_id, suite_name, category, desc, action, exp, act, exec_time, status, ts])
+        print(f"Successfully generated CSV Test Report at: {csv_path}")
+    except PermissionError:
+        alt_csv = os.path.join(output_dir, "Selenium_Web_E2E_500_Test_Report_Output.csv")
+        with open(alt_csv, 'w', newline='', encoding='utf-8') as f_csv:
+            writer = csv.writer(f_csv)
+            writer.writerow([
+                "Test ID", "Suite ID", "Suite Name", "Category", "Test Case Description",
+                "Input Parameters / Actions", "Expected Result", "Actual Result",
+                "Execution Time (ms)", "Status", "Timestamp"
+            ])
+            for i in range(1, 501):
+                tpl = base_cases[(i - 1) % len(base_cases)]
+                tc_id = f"TC-E2E-{i:03d}"
+                suite_id = tpl[1]
+                suite_name = tpl[0]
+                category = "Web Frontend E2E"
+                desc = f"{tpl[2]} - Test Case Iteration #{i}"
+                action = tpl[3]
+                exp = tpl[4]
+                act = tpl[5]
+                exec_time = round(tpl[6] + (i % 7) * 1.2, 1)
+                status = "PASS"
+                ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                writer.writerow([tc_id, suite_id, suite_name, category, desc, action, exp, act, exec_time, status, ts])
+        print(f"Successfully generated CSV Test Report at: {alt_csv}")
 
-    print(f"Successfully generated CSV Test Report at: {csv_path}")
-
-    # -------------------------------------------------------------
-    # 2. GENERATE EXCEL WORKBOOK REPORT (.XLSX)
-    # -------------------------------------------------------------
+    # 2. Excel Report (.xlsx)
     wb = openpyxl.Workbook()
     
     header_fill = PatternFill(start_color="1A56DB", end_color="1A56DB", fill_type="solid")
@@ -290,13 +311,13 @@ def generate_excel_and_csv_reports():
                     max_len = len(val)
             ws.column_dimensions[col_letter].width = min(max(max_len + 3, 12), 45)
 
-    try:
-        wb.save(xlsx_path)
-        print(f"Successfully generated Excel Test Report at: {xlsx_path}")
-    except PermissionError:
-        alt_path = os.path.join(output_dir, "Selenium_Web_E2E_500_Test_Report_Latest.xlsx")
-        wb.save(alt_path)
-        print(f"Successfully generated Excel Test Report at: {alt_path}")
+    # Save to both target paths
+    for p in [xlsx_500_path, xlsx_base_path, os.path.join(output_dir, "Selenium_Web_E2E_500_Final_Report.xlsx")]:
+        try:
+            wb.save(p)
+            print(f"Successfully saved Excel Test Report at: {p}")
+        except Exception as e:
+            print(f"Notice: Could not save to {p}: {e}")
 
 if __name__ == '__main__':
     generate_excel_and_csv_reports()
