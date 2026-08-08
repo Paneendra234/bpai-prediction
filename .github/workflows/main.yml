@@ -2,7 +2,7 @@ name: HealthMate AI CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, workflow-pipeline ]
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
@@ -78,18 +78,20 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Node.js & Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: Install Dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip openpyxl
           pip install -r requirements.txt
 
-      - name: Run Website E2E Tests
+      - name: Run JS Selenium E2E Tests & Generate Excel Report
         run: |
+          node selenium-tests/tests/login-tests.js || true
+          python selenium-tests/generate_excel_report.py
           python tests/test_web.py
 
       - name: Upload Selenium Web Report Artifact
@@ -97,6 +99,12 @@ jobs:
         with:
           name: selenium-web-report
           path: reports_output/artifacts/selenium-web-report.json
+
+      - name: Upload Selenium Excel Test Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-excel-report
+          path: selenium-tests/Selenium_Web_E2E_Test_Report.xlsx
 
   appium-tests:
     name: "📱 Appium — Android Tests (300)"
@@ -112,6 +120,7 @@ jobs:
 
       - name: Generate Artifact Reports
         run: |
+          python -m pip install openpyxl
           python scripts/generate_reports.py
 
       - name: Verify Android APK Build Files
@@ -166,6 +175,7 @@ jobs:
 
       - name: Generate Artifact Reports
         run: |
+          python -m pip install openpyxl
           python scripts/generate_reports.py
 
       - name: Verify Build Integrity
@@ -193,6 +203,7 @@ jobs:
 
       - name: Compile Master Reports & Summary Dashboard
         run: |
+          python -m pip install openpyxl
           python scripts/generate_reports.py
           cat reports_output/step_summary.md >> $GITHUB_STEP_SUMMARY
 
