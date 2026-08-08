@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — HealthMate AI</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+{% load static %}<link href="{% static 'css/healthmate.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="auth-wrap">
+  <!-- Left panel -->
+  <div class="auth-panel-left">
+    <div class="auth-logo-box">
+      <div class="auth-logo-circle">🩺</div>
+      <h2 style="color:#fff;font-size:26px;font-weight:800;margin:0;letter-spacing:-0.5px;">HealthMate AI</h2>
+      <p style="color:rgba(255,255,255,0.45);font-size:14px;margin:6px 0 0;">AI-Based Diabetes Prediction System</p>
+    </div>
+    <div class="auth-feature-list">
+      <div class="auth-feat">
+        <span class="auth-feat-icon">🤖</span>
+        <div class="auth-feat-info"><strong>83%+ Accuracy</strong><span>Random Forest + XGBoost ML models</span></div>
+      </div>
+      <div class="auth-feat">
+        <span class="auth-feat-icon">🥗</span>
+        <div class="auth-feat-info"><strong>Personalized Diet Plans</strong><span>Based on glucose, BP, and BMI</span></div>
+      </div>
+      <div class="auth-feat">
+        <span class="auth-feat-icon">📊</span>
+        <div class="auth-feat-info"><strong>Health Analytics</strong><span>Track trends over time</span></div>
+      </div>
+      <div class="auth-feat">
+        <span class="auth-feat-icon">📄</span>
+        <div class="auth-feat-info"><strong>PDF Reports</strong><span>Download full health reports</span></div>
+      </div>
+      <div class="auth-feat">
+        <span class="auth-feat-icon">🌐</span>
+        <div class="auth-feat-info"><strong>3 Languages</strong><span>English, Telugu, Hindi</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel -->
+  <div class="auth-panel-right">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} mb-3 auto-dismiss">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="mb-4">
+      <h3 style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:6px;">Welcome back 👋</h3>
+      <p style="color:var(--text-muted);font-size:14px;margin:0;">Sign in to your HealthMate AI account</p>
+    </div>
+
+    <form method="post" autocomplete="on">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <div class="input-group">
+          <span class="input-group-text" style="background:var(--primary-light);border:1.5px solid var(--border);border-right:none;color:var(--primary)">
+            <i class="bi bi-person"></i>
+          </span>
+          {{ form.username }}
+        </div>
+        {% if form.username.errors %}<div class="text-danger small mt-1">{{ form.username.errors.0 }}</div>{% endif %}
+      </div>
+      <div class="mb-4">
+        <label class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text" style="background:var(--primary-light);border:1.5px solid var(--border);border-right:none;color:var(--primary)">
+            <i class="bi bi-lock"></i>
+          </span>
+          {{ form.password }}
+          <button type="button" class="btn" style="border:1.5px solid var(--border);border-left:none;background:var(--card-bg);color:var(--text-muted);" onclick="togglePwd(this)">
+            <i class="bi bi-eye"></i>
+          </button>
+        </div>
+        {% if form.password.errors %}<div class="text-danger small mt-1">{{ form.password.errors.0 }}</div>{% endif %}
+      </div>
+      {% if form.non_field_errors %}
+      <div class="alert alert-danger py-2 mb-3">{{ form.non_field_errors.0 }}</div>
+      {% endif %}
+      <button type="submit" class="btn btn-primary w-100 py-3 mb-3" style="font-size:15px;">
+        <i class="bi bi-box-arrow-in-right"></i> Sign In
+      </button>
+    </form>
+
+    <div class="text-center" style="color:var(--text-muted);font-size:14px;">
+      Don't have an account? <a href="{% url 'accounts:signup' %}" style="color:var(--primary);font-weight:600;">Create one free →</a>
+    </div>
+
+    <hr style="margin:24px 0;border-color:var(--border);">
+    <div class="text-center">
+      <a href="/" style="color:var(--text-muted);font-size:13px;text-decoration:none;"><i class="bi bi-arrow-left"></i> Back to home</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% load static %}<script src="{% static 'js/healthmate.js' %}"></script>
+<script>
+function togglePwd(btn) {
+  const inp = btn.closest('.input-group').querySelector('input');
+  const icon = btn.querySelector('i');
+  if (inp.type === 'password') { inp.type = 'text'; icon.className = 'bi bi-eye-slash'; }
+  else { inp.type = 'password'; icon.className = 'bi bi-eye'; }
+}
+// Fix form-control class
+document.querySelectorAll('#id_username, #id_password').forEach(el => el.classList.add('form-control'));
+</script>
+</body>
+</html>

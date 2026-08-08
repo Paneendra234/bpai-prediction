@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% block title %}New Prediction{% endblock %}
+{% block page_title %}Diabetes Risk Assessment{% endblock %}
+{% block page_sub %}Enter your health parameters for AI analysis{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+  <!-- Form -->
+  <div class="col-lg-8">
+    <form method="post" id="predForm">
+      {% csrf_token %}
+
+      <!-- Section 1: Reproductive -->
+      <div class="form-section anim">
+        <div class="fsec-head">
+          <div class="fsec-icon">🤰</div>
+          <div>
+            <div class="fsec-title" data-i18n="form_sec1_title">Reproductive History</div>
+            <div class="fsec-sub" data-i18n="form_sec1_sub">Enter 0 if not applicable</div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label" data-i18n="form_pregnancies">Pregnancies</label>
+            {{ form.pregnancies }}
+            <div class="field-hint">ℹ️ Number of times pregnant (0–20)</div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" data-i18n="form_age">Age (years)</label>
+            {{ form.age }}
+            <div class="field-hint">ℹ️ Your current age in years</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Blood Parameters -->
+      <div class="form-section anim anim-1">
+        <div class="fsec-head">
+          <div class="fsec-icon">🩸</div>
+          <div>
+            <div class="fsec-title" data-i18n="form_sec2_title">Blood Parameters</div>
+            <div class="fsec-sub" data-i18n="form_sec2_sub">From your latest lab report</div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label" data-i18n="form_glucose">Glucose Level</label>
+            {{ form.glucose }}
+            <div class="field-hint">ℹ️ Plasma glucose after 2-hr oral test (mg/dL)</div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" data-i18n="form_insulin">Insulin Level</label>
+            {{ form.insulin }}
+            <div class="field-hint">ℹ️ 2-hour serum insulin (mu U/ml)</div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" data-i18n="form_bp">Blood Pressure</label>
+            {{ form.blood_pressure }}
+            <div class="field-hint">ℹ️ Diastolic blood pressure (mmHg)</div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" data-i18n="form_skin">Skin Thickness</label>
+            {{ form.skin_thickness }}
+            <div class="field-hint">ℹ️ Triceps skinfold thickness (mm)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Body Metrics -->
+      <div class="form-section anim anim-2">
+        <div class="fsec-head">
+          <div class="fsec-icon">⚖️</div>
+          <div>
+            <div class="fsec-title" data-i18n="form_sec3_title">Body Metrics</div>
+            <div class="fsec-sub">Auto-calculate BMI below</div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-sm-4">
+            <label class="form-label" data-i18n="form_weight">Weight (kg)</label>
+            <input type="number" id="bmiWeight" class="form-control" placeholder="e.g. 70" step="0.1" min="20" max="300">
+          </div>
+          <div class="col-sm-4">
+            <label class="form-label" data-i18n="form_height">Height (cm)</label>
+            <input type="number" id="bmiHeight" class="form-control" placeholder="e.g. 170" step="0.1" min="100" max="250">
+          </div>
+          <div class="col-sm-4">
+            <label class="form-label" data-i18n="form_bmi">BMI</label>
+            {{ form.bmi }}
+          </div>
+          <div class="col-12">
+            <div id="bmiDisplay"></div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" data-i18n="form_pedigree">Diabetes Pedigree Function</label>
+            {{ form.diabetes_pedigree }}
+            <div class="field-hint">ℹ️ Family history likelihood score (0.078–2.42)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Errors -->
+      {% if form.errors %}
+      <div class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle"></i>
+        Please fix the errors below and resubmit.
+      </div>
+      {% endif %}
+
+      <button type="submit" class="btn btn-primary w-100 py-3" style="font-size:16px;">
+        <i class="bi bi-cpu"></i> <span data-i18n="btn_submit_pred">Run AI Prediction</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Info Panel -->
+  <div class="col-lg-4">
+    <!-- ML Info -->
+    <div class="card anim mb-4">
+      <div class="card-header"><i class="bi bi-cpu text-primary me-2"></i>ML Model Info</div>
+      <div class="card-body">
+        {% if accuracy %}
+        {% for name, acc in accuracy.items %}
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <div style="font-size:13px;font-weight:600;">{{ name }}</div>
+            <div style="font-size:11px;color:var(--text-muted);">Accuracy</div>
+          </div>
+          <div class="text-end">
+            <div style="font-weight:800;font-size:15px;color:var(--primary);">{{ acc }}%</div>
+            <div class="progress" style="width:80px;height:4px;margin-top:4px;">
+              <div class="progress-bar" data-width="{{ acc }}" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <div class="alert alert-primary py-2 mb-0" style="font-size:12px;">
+          🏆 Best model auto-selected for prediction
+        </div>
+      </div>
+    </div>
+
+    <!-- Reference Ranges -->
+    <div class="card anim anim-1 mb-4">
+      <div class="card-header"><i class="bi bi-info-circle text-primary me-2"></i>Normal Reference Ranges</div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table mb-0" style="font-size:13px;">
+            <tbody>
+              <tr><td>🩸 Glucose</td><td><span class="hbadge normal">< 100 mg/dL</span></td></tr>
+              <tr><td>💓 Blood Pressure</td><td><span class="hbadge normal">60–80 mmHg</span></td></tr>
+              <tr><td>⚖️ BMI</td><td><span class="hbadge normal">18.5–24.9</span></td></tr>
+              <tr><td>💉 Insulin</td><td><span class="hbadge normal">16–166 mu U/ml</span></td></tr>
+              <tr><td>📏 Skin Thickness</td><td><span class="hbadge normal">10–40 mm</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="card anim anim-2">
+      <div class="card-header"><i class="bi bi-lightbulb text-warning me-2"></i>Quick Tips</div>
+      <div class="card-body" style="font-size:13px;color:var(--text-muted);">
+        <p>💡 Use your <strong>most recent lab report</strong> for accurate results.</p>
+        <p>💡 Fasting glucose is the most important parameter.</p>
+        <p>💡 Results are for <strong>educational purposes</strong> — always consult a doctor.</p>
+        <p class="mb-0">💡 BMI auto-calculates from weight & height.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

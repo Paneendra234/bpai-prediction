@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% block title %}Prediction Result{% endblock %}
+{% block page_title %}Your Result{% endblock %}
+{% block page_sub %}AI Diabetes Risk Assessment Result{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+  <!-- Main Result -->
+  <div class="col-lg-8">
+    <!-- Hero Result Card -->
+    <div class="result-hero anim mb-4">
+      <div style="position:relative;z-index:1;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px;">
+          AI Prediction Result · {{ pred.created_at|date:"F d, Y · g:i A" }}
+        </div>
+        <div class="result-badge {% if pred.prediction == 'Diabetic' %}diabetic{% else %}non-diabetic{% endif %}">
+          {% if pred.prediction == 'Diabetic' %}⚠️{% else %}✅{% endif %}
+          {{ pred.prediction }}
+        </div>
+        <p style="color:rgba(255,255,255,0.55);font-size:14px;margin:8px 0 24px;">
+          Model: <strong style="color:#fff;">{{ pred.model_used }}</strong>
+        </p>
+        <!-- Gauge -->
+        <div style="max-width:220px;margin:0 auto 20px;">
+          <canvas id="riskGauge" width="220" height="130"></canvas>
+        </div>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="{% url 'reports:generate' pred.pk %}" class="btn btn-sm" style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-weight:600;">
+            <i class="bi bi-file-earmark-pdf"></i> <span data-i18n="btn_download_pdf">Download PDF Report</span>
+          </a>
+          <a href="{% url 'prediction:predict' %}" class="btn btn-primary btn-sm">
+            <i class="bi bi-plus-circle"></i> <span data-i18n="btn_new_test">New Test</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Health Analysis -->
+    <div class="card anim anim-1 mb-4">
+      <div class="card-header"><i class="bi bi-heart-pulse text-primary me-2"></i>Health Analysis</div>
+      <div class="card-body">
+        {% with sg=pred.get_sugar_status bps=pred.get_bp_status bmis=pred.get_bmi_status %}
+        <div class="row g-3">
+          <div class="col-sm-4">
+            <div class="status-row flex-column align-items-start">
+              <div class="d-flex align-items-center w-100 mb-2">
+                <div class="status-dot {{ sg.1 }}"></div>
+                <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">Blood Sugar</span>
+                <span class="ms-auto hbadge {{ sg.1 }}">{{ sg.0 }}</span>
+              </div>
+              <div style="font-size:22px;font-weight:800;">{{ pred.glucose }} <small style="font-size:12px;font-weight:400;color:var(--text-muted);">mg/dL</small></div>
+              <div class="progress w-100 mt-2">
+                <div class="progress-bar {% if sg.1 == 'normal' %}bg-success{% elif sg.1 == 'warning' %}bg-warning{% else %}bg-danger{% endif %}" data-width="{% widthratio pred.glucose 200 100 %}" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="status-row flex-column align-items-start">
+              <div class="d-flex align-items-center w-100 mb-2">
+                <div class="status-dot {{ bps.1 }}"></div>
+                <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">Blood Pressure</span>
+                <span class="ms-auto hbadge {{ bps.1 }}">{{ bps.0 }}</span>
+              </div>
+              <div style="font-size:22px;font-weight:800;">{{ pred.blood_pressure }} <small style="font-size:12px;font-weight:400;color:var(--text-muted);">mmHg</small></div>
+              <div class="progress w-100 mt-2">
+                <div class="progress-bar {% if bps.1 == 'normal' %}bg-success{% elif bps.1 == 'warning' %}bg-warning{% else %}bg-danger{% endif %}" data-width="{% widthratio pred.blood_pressure 150 100 %}" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="status-row flex-column align-items-start">
+              <div class="d-flex align-items-center w-100 mb-2">
+                <div class="status-dot {{ bmis.1 }}"></div>
+                <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">BMI</span>
+                <span class="ms-auto hbadge {{ bmis.1 }}">{{ bmis.0 }}</span>
+              </div>
+              <div style="font-size:22px;font-weight:800;">{{ pred.bmi }} <small style="font-size:12px;font-weight:400;color:var(--text-muted);">kg/m²</small></div>
+              <div class="progress w-100 mt-2">
+                <div class="progress-bar {% if bmis.1 == 'normal' %}bg-success{% elif bmis.1 == 'warning' %}bg-warning{% else %}bg-danger{% endif %}" data-width="{% widthratio pred.bmi 50 100 %}" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endwith %}
+
+        <!-- All Parameters Grid -->
+        <hr style="border-color:var(--border);margin:20px 0;">
+        <h6 style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;">All Parameters</h6>
+        <div class="row g-2">
+          <div class="col-6 col-md-3">
+            <div style="background:var(--body-bg);border-radius:10px;padding:12px;text-align:center;">
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.4px;">Pregnancies</div>
+              <div style="font-size:18px;font-weight:800;">{{ pred.pregnancies }}</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div style="background:var(--body-bg);border-radius:10px;padding:12px;text-align:center;">
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.4px;">Insulin</div>
+              <div style="font-size:18px;font-weight:800;">{{ pred.insulin }}</div>
+              <div style="font-size:10px;color:var(--text-muted);">mu U/ml</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div style="background:var(--body-bg);border-radius:10px;padding:12px;text-align:center;">
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.4px;">Skin Thickness</div>
+              <div style="font-size:18px;font-weight:800;">{{ pred.skin_thickness }}</div>
+              <div style="font-size:10px;color:var(--text-muted);">mm</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div style="background:var(--body-bg);border-radius:10px;padding:12px;text-align:center;">
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.4px;">Pedigree Fn.</div>
+              <div style="font-size:18px;font-weight:800;">{{ pred.diabetes_pedigree }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diet Plan -->
+    {% if diet_plan %}
+    {% with rec=diet_plan.recommendation %}
+    <div class="card anim anim-2">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <span><i class="bi bi-egg-fried text-success me-2"></i>Personalized Diet Plan</span>
+        <span class="hbadge normal">{{ rec.lang_note|default:"Your Diet Plan" }}</span>
+      </div>
+      <div class="card-body">
+        <div class="row g-4">
+          <!-- Foods to Eat -->
+          <div class="col-md-6">
+            <h6 style="color:var(--success);font-weight:700;margin-bottom:12px;">✅ Foods to Eat</h6>
+            {% for item in rec.foods_to_eat %}
+            <div class="diet-item"><span class="diet-emoji">{{ item|slice:":2" }}</span><span>{{ item|slice:"2:" }}</span></div>
+            {% endfor %}
+          </div>
+          <!-- Foods to Avoid -->
+          <div class="col-md-6">
+            <h6 style="color:var(--danger);font-weight:700;margin-bottom:12px;">🚫 Foods to Avoid</h6>
+            {% for item in rec.foods_to_avoid %}
+            <div class="diet-item"><span class="diet-emoji">{{ item|slice:":2" }}</span><span>{{ item|slice:"2:" }}</span></div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <hr style="border-color:var(--border);margin:20px 0;">
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div style="background:var(--body-bg);border-radius:12px;padding:16px;">
+              <h6 style="font-size:13px;font-weight:700;margin-bottom:12px;">🌅 {{ rec.morning_label|default:"Breakfast" }}</h6>
+              {% for item in rec.breakfast %}
+              <div style="font-size:13px;padding:5px 0;border-bottom:1px solid var(--border);color:var(--text-primary);">{{ item }}</div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="background:var(--body-bg);border-radius:12px;padding:16px;">
+              <h6 style="font-size:13px;font-weight:700;margin-bottom:12px;">☀️ {{ rec.lunch_label|default:"Lunch" }}</h6>
+              {% for item in rec.lunch %}
+              <div style="font-size:13px;padding:5px 0;border-bottom:1px solid var(--border);color:var(--text-primary);">{{ item }}</div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="background:var(--body-bg);border-radius:12px;padding:16px;">
+              <h6 style="font-size:13px;font-weight:700;margin-bottom:12px;">🌙 {{ rec.dinner_label|default:"Dinner" }}</h6>
+              {% for item in rec.dinner %}
+              <div style="font-size:13px;padding:5px 0;border-bottom:1px solid var(--border);color:var(--text-primary);">{{ item }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        {% if rec.snacks %}
+        <hr style="border-color:var(--border);margin:16px 0;">
+        <h6 style="font-size:13px;font-weight:700;margin-bottom:10px;">🍎 Healthy Snacks</h6>
+        <div class="d-flex flex-wrap gap-2">
+          {% for s in rec.snacks %}
+          <span style="background:var(--primary-light);color:var(--primary);padding:5px 12px;border-radius:50px;font-size:13px;font-weight:600;">{{ s }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if rec.tips %}
+        <hr style="border-color:var(--border);margin:16px 0;">
+        <h6 style="font-size:13px;font-weight:700;margin-bottom:10px;">💡 Health Tips</h6>
+        <div class="row g-2">
+          {% for tip in rec.tips %}
+          <div class="col-md-6">
+            <div style="background:linear-gradient(135deg,#fef3c722,transparent);border:1px solid #fef3c7;border-radius:9px;padding:10px 12px;font-size:13px;">{{ tip }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <hr style="border-color:var(--border);margin:16px 0;">
+        <div class="row g-2 text-center">
+          <div class="col-6">
+            <div style="background:var(--primary-light);border-radius:9px;padding:10px;">
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;font-weight:600;">Daily Water Intake</div>
+              <div style="font-size:15px;font-weight:700;color:var(--primary);">💧 {{ rec.water_intake }}</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:#d1fae5;border-radius:9px;padding:10px;">
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;font-weight:600;">Daily Exercise</div>
+              <div style="font-size:15px;font-weight:700;color:var(--success);">🏃 {{ rec.exercise }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endwith %}
+    {% endif %}
+  </div>
+
+  <!-- Right sidebar -->
+  <div class="col-lg-4">
+    <div class="card anim mb-4">
+      <div class="card-header"><i class="bi bi-share text-primary me-2"></i>Actions</div>
+      <div class="card-body d-grid gap-2">
+        <a href="{% url 'reports:generate' pred.pk %}" class="btn btn-primary">
+          <i class="bi bi-file-earmark-pdf"></i> Download PDF Report
+        </a>
+        <a href="{% url 'prediction:predict' %}" class="btn btn-outline-primary">
+          <i class="bi bi-plus-circle"></i> New Prediction
+        </a>
+        <a href="{% url 'prediction:history' %}" class="btn btn-outline-secondary">
+          <i class="bi bi-clock-history"></i> View History
+        </a>
+        <a href="{% url 'dashboard:home' %}" class="btn btn-outline-secondary">
+          <i class="bi bi-grid"></i> Dashboard
+        </a>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="card anim anim-1" style="border:1px solid #fef3c7;background:#fffbeb;">
+      <div class="card-body" style="padding:16px;">
+        <h6 style="color:#d97706;font-weight:700;margin-bottom:8px;">⚠️ Medical Disclaimer</h6>
+        <p style="font-size:12px;color:#92400e;margin:0;line-height:1.6;">
+          This AI prediction is for <strong>educational purposes only</strong> and is NOT a medical diagnosis. 
+          Please consult a qualified healthcare professional for proper medical advice and diagnosis.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  drawGauge('riskGauge', {{ pred.risk_score }});
+});
+</script>
+{% endblock %}

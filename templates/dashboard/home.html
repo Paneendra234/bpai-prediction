@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block page_sub %}Welcome back, {{ request.user.first_name|default:request.user.username }}!{% endblock %}
+
+{% block content %}
+
+<!-- Stat Cards -->
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card anim anim-1">
+      <div class="stat-accent primary"></div>
+      <div class="stat-icon primary">📊</div>
+      <div class="stat-value" data-counter>{{ total_predictions }}</div>
+      <div class="stat-label" data-i18n="total_tests">Total Predictions</div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card anim anim-2">
+      <div class="stat-accent danger"></div>
+      <div class="stat-icon danger">⚠️</div>
+      <div class="stat-value" data-counter>{{ diabetic_count }}</div>
+      <div class="stat-label" data-i18n="res_diabetic">Diabetic Results</div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card anim anim-3">
+      <div class="stat-accent success"></div>
+      <div class="stat-icon success">✅</div>
+      <div class="stat-value" data-counter>{{ safe_count }}</div>
+      <div class="stat-label" data-i18n="res_nondiabetic">Non-Diabetic Results</div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card anim anim-4">
+      <div class="stat-accent warning"></div>
+      <div class="stat-icon warning">🥗</div>
+      <div class="stat-value" data-counter>{{ request.user.diet_plans.count }}</div>
+      <div class="stat-label" data-i18n="nav_diet">Diet Plans</div>
+    </div>
+  </div>
+</div>
+
+{% if latest %}
+<!-- Latest Result Banner -->
+<div class="card mb-4 anim" style="border:none;background:linear-gradient(135deg,{% if latest.prediction == 'Diabetic' %}#7f1d1d,#991b1b{% else %}#064e3b,#065f46{% endif %});">
+  <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3" style="padding:20px 24px;">
+    <div class="d-flex align-items-center gap-3">
+      <span style="font-size:40px;">{% if latest.prediction == 'Diabetic' %}⚠️{% else %}✅{% endif %}</span>
+      <div>
+        <div style="color:rgba(255,255,255,0.6);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Latest Result — {{ latest.created_at|date:"M d, Y" }}</div>
+        <div style="color:#fff;font-size:22px;font-weight:800;">{{ latest.prediction }}</div>
+        <div style="color:rgba(255,255,255,0.65);font-size:13px;">Risk Score: <strong style="color:#fff;">{{ latest.risk_score }}%</strong> &nbsp;|&nbsp; Glucose: {{ latest.glucose }} mg/dL &nbsp;|&nbsp; BMI: {{ latest.bmi }}</div>
+      </div>
+    </div>
+    <div class="d-flex gap-2">
+      <a href="{% url 'prediction:result' latest.pk %}" class="btn btn-sm" style="background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.2);">
+        <i class="bi bi-eye"></i> View
+      </a>
+      <a href="{% url 'reports:generate' latest.pk %}" class="btn btn-sm" style="background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.2);">
+        <i class="bi bi-download"></i> PDF
+      </a>
+      <a href="{% url 'prediction:predict' %}" class="btn btn-sm btn-primary">
+        <i class="bi bi-plus"></i> New Test
+      </a>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="card mb-4 anim" style="border:2px dashed var(--border);">
+  <div class="card-body text-center py-5">
+    <div style="font-size:52px;margin-bottom:12px;">🩺</div>
+    <h5 style="font-weight:700;margin-bottom:8px;">No predictions yet</h5>
+    <p style="color:var(--text-muted);margin-bottom:20px;">Take your first AI-powered diabetes risk assessment</p>
+    <a href="{% url 'prediction:predict' %}" class="btn btn-primary px-5">
+      <i class="bi bi-activity"></i> Start Health Check
+    </a>
+  </div>
+</div>
+{% endif %}
+
+<!-- Charts Row -->
+<div class="row g-4 mb-4">
+  <div class="col-lg-8">
+    <div class="card anim anim-1" style="height:100%;">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <span><i class="bi bi-graph-up text-primary me-2"></i>Glucose & BP Trends</span>
+        <span style="font-size:12px;color:var(--text-muted);">Last {{ labels|length }} readings</span>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap">
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card anim anim-2" style="height:100%;">
+      <div class="card-header"><i class="bi bi-pie-chart text-primary me-2"></i>Prediction Split</div>
+      <div class="card-body d-flex align-items-center justify-content-center">
+        {% if total_predictions > 0 %}
+        <div class="chart-wrap w-100">
+          <canvas id="splitChart"></canvas>
+        </div>
+        {% else %}
+        <div class="text-center" style="color:var(--text-muted);">
+          <div style="font-size:40px;margin-bottom:8px;">📊</div>
+          <p style="font-size:13px;">Make predictions to see your split chart</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-lg-6">
+    <div class="card anim anim-1">
+      <div class="card-header"><i class="bi bi-bar-chart text-primary me-2"></i>BMI Trend</div>
+      <div class="card-body">
+        <div class="chart-wrap">
+          <canvas id="bmiChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card anim anim-2">
+      <div class="card-header"><i class="bi bi-speedometer2 text-primary me-2"></i>Risk Score History</div>
+      <div class="card-body">
+        <div class="chart-wrap">
+          <canvas id="riskChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Recent Predictions Table -->
+<div class="card anim">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    <span><i class="bi bi-clock-history text-primary me-2"></i>Recent Predictions</span>
+    <a href="{% url 'prediction:history' %}" style="font-size:13px;color:var(--primary);text-decoration:none;font-weight:600;">View all →</a>
+  </div>
+  <div class="card-body p-0">
+    {% if latest %}
+    <div class="table-responsive">
+      <table class="table mb-0">
+        <thead>
+          <tr>
+            <th>Date</th><th>Glucose</th><th>BP</th><th>BMI</th><th>Result</th><th>Risk</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in request.user.predictions.all|slice:":5" %}
+          <tr>
+            <td>{{ p.created_at|date:"M d, Y" }}</td>
+            <td><span class="hbadge {% if p.glucose < 100 %}normal{% elif p.glucose < 126 %}warning{% else %}danger{% endif %}">{{ p.glucose }}</span></td>
+            <td>{{ p.blood_pressure }}</td>
+            <td>{{ p.bmi }}</td>
+            <td>
+              <span class="hbadge {% if p.prediction == 'Diabetic' %}danger{% else %}normal{% endif %}">
+                {% if p.prediction == 'Diabetic' %}⚠️{% else %}✅{% endif %} {{ p.prediction }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex align-items-center gap-2">
+                <div class="progress" style="width:60px;height:6px;">
+                  <div class="progress-bar {% if p.risk_score > 60 %}bg-danger{% elif p.risk_score > 30 %}bg-warning{% else %}bg-success{% endif %}" style="width:{{ p.risk_score }}%"></div>
+                </div>
+                <small>{{ p.risk_score }}%</small>
+              </div>
+            </td>
+            <td>
+              <a href="{% url 'prediction:result' p.pk %}" class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-eye"></i></a>
+              <a href="{% url 'reports:generate' p.pk %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="text-center py-4" style="color:var(--text-muted);">No predictions yet. <a href="{% url 'prediction:predict' %}">Take your first test →</a></div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const labels = {{ labels|safe }};
+const glucoseData = {{ glucose_data|safe }};
+const bpData = {{ bp_data|safe }};
+const bmiData = {{ bmi_data|safe }};
+const riskData = {{ risk_data|safe }};
+
+if (labels.length > 0) {
+  // Trend chart
+  createLineChart('trendChart', labels, [
+    { label: 'Glucose (mg/dL)', data: glucoseData, borderColor: '#1a56db', backgroundColor: '#1a56db18', fill: true, tension: 0.4 },
+    { label: 'Blood Pressure (mmHg)', data: bpData, borderColor: '#ef4444', backgroundColor: '#ef444418', fill: true, tension: 0.4 },
+  ]);
+
+  // BMI Bar
+  createBarChart('bmiChart', labels, bmiData, '#10b981');
+
+  // Risk Line
+  createLineChart('riskChart', labels, [
+    { label: 'Risk Score (%)', data: riskData, borderColor: '#f59e0b', backgroundColor: '#f59e0b22', fill: true, tension: 0.4 }
+  ]);
+}
+
+// Donut chart
+const diabeticCount = {{ diabetic_count }};
+const safeCount = {{ safe_count }};
+if (diabeticCount + safeCount > 0) {
+  createDoughnutChart('splitChart',
+    ['Non-Diabetic', 'Diabetic'],
+    [safeCount, diabeticCount],
+    ['#10b981', '#ef4444']
+  );
+}
+</script>
+{% endblock %}

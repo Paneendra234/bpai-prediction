@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Prediction History{% endblock %}
+{% block page_title %}Prediction History{% endblock %}
+{% block page_sub %}All your past health assessments{% endblock %}
+
+{% block content %}
+<div class="card anim">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    <span><i class="bi bi-clock-history text-primary me-2"></i>All Predictions ({{ predictions.count }})</span>
+    <a href="{% url 'prediction:predict' %}" class="btn btn-primary btn-sm">
+      <i class="bi bi-plus"></i> New Test
+    </a>
+  </div>
+  <div class="card-body p-0">
+    {% if predictions %}
+    <div class="table-responsive">
+      <table class="table mb-0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Glucose</th>
+            <th>BP</th>
+            <th>BMI</th>
+            <th>Age</th>
+            <th>Result</th>
+            <th>Risk %</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in predictions %}
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">{{ forloop.counter }}</td>
+            <td>
+              <div style="font-size:13px;font-weight:600;">{{ p.created_at|date:"M d, Y" }}</div>
+              <div style="font-size:11px;color:var(--text-muted);">{{ p.created_at|time:"g:i A" }}</div>
+            </td>
+            <td>
+              <span class="hbadge {% if p.glucose < 100 %}normal{% elif p.glucose < 126 %}warning{% else %}danger{% endif %}">
+                {{ p.glucose }}
+              </span>
+            </td>
+            <td>
+              <span class="hbadge {% if p.blood_pressure < 80 %}normal{% elif p.blood_pressure < 90 %}warning{% else %}danger{% endif %}">
+                {{ p.blood_pressure }}
+              </span>
+            </td>
+            <td>
+              <span class="hbadge {% if p.bmi >= 18.5 and p.bmi < 25 %}normal{% elif p.bmi < 30 %}warning{% else %}danger{% endif %}">
+                {{ p.bmi }}
+              </span>
+            </td>
+            <td>{{ p.age }}</td>
+            <td>
+              <span class="hbadge {% if p.prediction == 'Diabetic' %}danger{% else %}normal{% endif %}">
+                {% if p.prediction == 'Diabetic' %}⚠️{% else %}✅{% endif %} {{ p.prediction }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex align-items-center gap-2">
+                <div class="progress" style="width:50px;">
+                  <div class="progress-bar {% if p.risk_score > 60 %}bg-danger{% elif p.risk_score > 30 %}bg-warning{% else %}bg-success{% endif %}"
+                    style="width:{{ p.risk_score }}%"></div>
+                </div>
+                <span style="font-size:12px;font-weight:600;">{{ p.risk_score }}%</span>
+              </div>
+            </td>
+            <td>
+              <a href="{% url 'prediction:result' p.pk %}" class="btn btn-sm btn-outline-primary me-1" title="View">
+                <i class="bi bi-eye"></i>
+              </a>
+              <a href="{% url 'reports:generate' p.pk %}" class="btn btn-sm btn-outline-secondary" title="Download PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+      <div style="font-size:52px;margin-bottom:12px;">🩺</div>
+      <h5 style="font-weight:700;margin-bottom:8px;">No predictions yet</h5>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Your prediction history will appear here.</p>
+      <a href="{% url 'prediction:predict' %}" class="btn btn-primary px-5">
+        <i class="bi bi-activity"></i> Take First Test
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

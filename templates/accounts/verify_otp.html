@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Enter OTP{% endblock %}
+{% block page_title %}Enter OTP{% endblock %}
+{% block page_sub %}Enter the 6-digit code sent to your phone{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="card anim">
+      <div class="card-body text-center" style="padding:40px 32px;">
+        <div style="font-size:56px;margin-bottom:16px;">🔐</div>
+        <h4 style="font-weight:800;margin-bottom:8px;">Enter Verification Code</h4>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:28px;">
+          We sent a 6-digit OTP to your phone.<br>
+          <strong style="color:var(--primary);">Demo: Check the message banner above.</strong>
+        </p>
+
+        {% if messages %}{% for m in messages %}
+        <div class="alert alert-{{ m.tags }} mb-3">{{ m }}</div>
+        {% endfor %}{% endif %}
+
+        <form method="post">
+          {% csrf_token %}
+          <div class="mb-4 text-start">
+            <label class="form-label text-center d-block">6-Digit OTP</label>
+            <input type="text" name="otp" class="form-control text-center fw-bold"
+              style="font-size:28px;letter-spacing:10px;padding:14px;"
+              maxlength="6" placeholder="• • • • • •" autocomplete="one-time-code" required>
+            {% if form.otp.errors %}<div class="text-danger small mt-1">{{ form.otp.errors.0 }}</div>{% endif %}
+          </div>
+          <button type="submit" class="btn btn-success w-100 py-3 mb-3">
+            <i class="bi bi-shield-check"></i> Verify OTP
+          </button>
+        </form>
+
+        <a href="{% url 'accounts:send_otp' %}" style="color:var(--text-muted);font-size:13px;text-decoration:none;">
+          <i class="bi bi-arrow-repeat"></i> Resend OTP
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

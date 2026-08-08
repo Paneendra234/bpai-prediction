@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block title %}Analytics{% endblock %}
+{% block page_title %}Health Analytics{% endblock %}
+{% block page_sub %}Deep insights into your health trends{% endblock %}
+
+{% block content %}
+{% load static %}
+
+{% if predictions %}
+{% with preds_list=predictions|slice:":20" %}
+<div class="row g-4">
+  <div class="col-12">
+    <div class="card anim">
+      <div class="card-header"><i class="bi bi-graph-up-arrow text-primary me-2"></i>All Health Parameters Over Time</div>
+      <div class="card-body">
+        <div style="height:320px;"><canvas id="allChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card anim anim-1">
+      <div class="card-header"><i class="bi bi-droplet text-danger me-2"></i>Glucose Analysis</div>
+      <div class="card-body">
+        <div style="height:240px;"><canvas id="glucoseChart"></canvas></div>
+        {% with avg_g=predictions|length %}
+        <div class="mt-3 d-flex gap-3 flex-wrap">
+          <div class="text-center">
+            <div style="font-size:22px;font-weight:800;color:var(--primary);">
+              {% for p in predictions %}{% if forloop.first %}{{ p.glucose }}{% endif %}{% endfor %}
+            </div>
+            <div style="font-size:11px;color:var(--text-muted);">Latest</div>
+          </div>
+        </div>
+        {% endwith %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card anim anim-2">
+      <div class="card-header"><i class="bi bi-heart-pulse text-danger me-2"></i>Blood Pressure Analysis</div>
+      <div class="card-body">
+        <div style="height:240px;"><canvas id="bpChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card anim anim-3">
+      <div class="card-header"><i class="bi bi-person-check text-warning me-2"></i>BMI Tracking</div>
+      <div class="card-body">
+        <div style="height:240px;"><canvas id="bmiTrackChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card anim anim-4">
+      <div class="card-header"><i class="bi bi-exclamation-triangle text-warning me-2"></i>Risk Score Trend</div>
+      <div class="card-body">
+        <div style="height:240px;"><canvas id="riskTrackChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const data = [
+    {% for p in preds_list|slice:":1" %}{% endfor %}
+    {% for p in preds_list reversed %}
+    { date: "{{ p.created_at|date:'M d' }}", glucose: {{ p.glucose }}, bp: {{ p.blood_pressure }}, bmi: {{ p.bmi }}, risk: {{ p.risk_score }} },
+    {% endfor %}
+  ];
+
+  const labels = data.map(d => d.date);
+  const glucose = data.map(d => d.glucose);
+  const bp = data.map(d => d.bp);
+  const bmi = data.map(d => d.bmi);
+  const risk = data.map(d => d.risk);
+
+  createLineChart('allChart', labels, [
+    { label: 'Glucose', data: glucose, borderColor: '#1a56db', backgroundColor: 'transparent', tension: 0.4 },
+    { label: 'Blood Pressure', data: bp, borderColor: '#ef4444', backgroundColor: 'transparent', tension: 0.4 },
+    { label: 'BMI × 5', data: bmi.map(v => v * 5), borderColor: '#10b981', backgroundColor: 'transparent', tension: 0.4 },
+    { label: 'Risk %', data: risk, borderColor: '#f59e0b', backgroundColor: 'transparent', tension: 0.4 },
+  ]);
+
+  createBarChart('glucoseChart', labels, glucose, '#1a56db');
+  createBarChart('bpChart', labels, bp, '#ef4444');
+  createBarChart('bmiTrackChart', labels, bmi, '#10b981');
+  createLineChart('riskTrackChart', labels, [
+    { label: 'Risk %', data: risk, borderColor: '#f59e0b', backgroundColor: '#f59e0b22', fill: true, tension: 0.4 }
+  ]);
+});
+</script>
+{% endwith %}
+
+{% else %}
+<div class="card">
+  <div class="card-body text-center py-5">
+    <div style="font-size:52px;margin-bottom:12px;">📈</div>
+    <h5 style="font-weight:700;margin-bottom:8px;">No Data Yet</h5>
+    <p style="color:var(--text-muted);margin-bottom:20px;">Take at least one prediction to see your analytics.</p>
+    <a href="{% url 'prediction:predict' %}" class="btn btn-primary px-5">
+      <i class="bi bi-activity"></i> Start Health Check
+    </a>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
