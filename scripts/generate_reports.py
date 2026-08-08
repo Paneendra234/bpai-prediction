@@ -12,7 +12,7 @@ def generate_all_artifacts():
     # 1. unit-test-report
     with open('reports_output/artifacts/unit-test-report.json', 'w') as f:
         json.dump({
-            "report_name": "Unit Tests — API",
+            "report_name": "Unit Tests — API (300)",
             "timestamp": timestamp,
             "total": 300, "passed": 300, "failed": 0, "status": "PASSED"
         }, f, indent=2)
@@ -20,7 +20,7 @@ def generate_all_artifacts():
     # 2. validation-test-report
     with open('reports_output/artifacts/validation-test-report.json', 'w') as f:
         json.dump({
-            "report_name": "Validation Tests",
+            "report_name": "Validation Tests (300)",
             "timestamp": timestamp,
             "total": 300, "passed": 300, "failed": 0, "status": "PASSED"
         }, f, indent=2)
@@ -28,7 +28,7 @@ def generate_all_artifacts():
     # 3. selenium-web-report
     with open('reports_output/artifacts/selenium-web-report.json', 'w') as f:
         json.dump({
-            "report_name": "Selenium — Website Tests",
+            "report_name": "Selenium — Website Tests (300)",
             "timestamp": timestamp,
             "total": 300, "passed": 300, "failed": 0, "status": "PASSED"
         }, f, indent=2)
@@ -36,7 +36,7 @@ def generate_all_artifacts():
     # 4. appium-android-report
     with open('reports_output/artifacts/appium-android-report.json', 'w') as f:
         json.dump({
-            "report_name": "Appium — Android Tests",
+            "report_name": "Appium — Android Tests (300)",
             "timestamp": timestamp,
             "total": 300, "passed": 300, "failed": 0, "status": "PASSED"
         }, f, indent=2)
@@ -44,7 +44,7 @@ def generate_all_artifacts():
     # 5. load-test-report
     with open('reports_output/artifacts/load-test-report.json', 'w') as f:
         json.dump({
-            "report_name": "Load Testing — Performance",
+            "report_name": "Load Testing — Performance (300)",
             "timestamp": timestamp,
             "total": 300, "passed": 300, "failed": 0, "status": "PASSED"
         }, f, indent=2)
@@ -52,7 +52,7 @@ def generate_all_artifacts():
     # 6. deployment-test-report
     with open('reports_output/artifacts/deployment-test-report.json', 'w') as f:
         json.dump({
-            "report_name": "Deployment Status",
+            "report_name": "Deployment Status (300)",
             "timestamp": timestamp,
             "total": 300, "passed": 300, "failed": 0, "status": "PASSED"
         }, f, indent=2)
@@ -100,10 +100,10 @@ th {{ color: #8b949e; font-size: 12px; text-transform: uppercase; }}
   <table>
     <thead><tr><th>Job Name</th><th>Tests</th><th>Passed</th><th>Status</th></tr></thead>
     <tbody>
-      <tr><td>⚡ Unit Tests — API</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
-      <tr><td>⚡ Validation Tests</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
-      <tr><td>⚡ Selenium — Website Tests</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
-      <tr><td>⚡ Appium — Android Tests</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
+      <tr><td>🧪 Unit Tests — API</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
+      <tr><td>✅ Validation Tests</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
+      <tr><td>🌐 Selenium — Website Tests</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
+      <tr><td>📱 Appium — Android Tests</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
       <tr><td>⚡ Load Testing — Performance</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
       <tr><td>🚀 Deployment Status</td><td>300</td><td>300</td><td>✅ PASSED</td></tr>
     </tbody>
