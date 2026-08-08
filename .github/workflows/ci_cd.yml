@@ -105,6 +105,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate Artifact Reports
+        run: |
+          python scripts/generate_reports.py
+
       - name: Verify Android APK Build Files
         run: |
           echo "Verifying HealthMate_AI.apk & Release APK build artifacts..."
@@ -115,7 +124,6 @@ jobs:
         with:
           name: appium-android-report
           path: reports_output/artifacts/appium-android-report.json
-        if: always()
 
   load-tests:
     name: "⚡ Load Testing — Performance (300)"
@@ -152,6 +160,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate Artifact Reports
+        run: |
+          python scripts/generate_reports.py
+
       - name: Verify Build Integrity
         run: |
           echo "Build integrity check passed successfully."
@@ -161,7 +178,6 @@ jobs:
         with:
           name: deployment-test-report
           path: reports_output/artifacts/deployment-test-report.json
-        if: always()
 
   compile-master-report:
     name: "🌐 Compile Master Report & Deploy"
