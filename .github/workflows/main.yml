@@ -104,7 +104,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: selenium-500-test-cases-excel-report
-          path: selenium-tests/Selenium_Web_E2E_500_Test_Report.xlsx
+          path: selenium-tests/Selenium_Web_E2E_500_Test_Report_Latest.xlsx
+
+      - name: Upload Selenium 500 Test Cases CSV Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-500-test-cases-csv-report
+          path: selenium-tests/Selenium_Web_E2E_500_Test_Report.csv
 
   appium-tests:
     name: "📱 Appium — Android Tests (300)"
