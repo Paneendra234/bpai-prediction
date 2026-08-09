@@ -1,4 +1,4 @@
-name: HealthMate AI CI/CD Pipeline
+name: HealthMate AI E2E Pipeline
 
 on:
   push:
