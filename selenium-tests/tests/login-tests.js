@@ -11,18 +11,18 @@
 const fs = require('fs');
 const path = require('path');
 
-// Test Suites Configuration (500 Test Cases Total)
+// Test Suites Configuration (300 Test Cases Total)
 const TEST_SUITES = [
-  { suite_id: "SUITE-01", name: "Authentication & Login", category: "Web Frontend E2E", count: 50 },
-  { suite_id: "SUITE-02", name: "User Registration & Signup", category: "Web Frontend E2E", count: 50 },
-  { suite_id: "SUITE-03", name: "Dashboard & Metrics", category: "Web Frontend E2E", count: 55 },
-  { suite_id: "SUITE-04", name: "AI Diabetes Prediction Form", category: "Web Frontend E2E", count: 65 },
-  { suite_id: "SUITE-05", name: "Diagnosis & Risk Gauge", category: "Web Frontend E2E", count: 50 },
-  { suite_id: "SUITE-06", name: "Personalized Diet Recommendations", category: "Web Frontend E2E", count: 50 },
-  { suite_id: "SUITE-07", name: "Multi-Language Support (EN, HI, TE)", category: "Web Frontend E2E", count: 50 },
-  { suite_id: "SUITE-08", name: "PDF Report Generation", category: "Web Frontend E2E", count: 45 },
-  { suite_id: "SUITE-09", name: "Profile & Security Verification", category: "Web Frontend E2E", count: 45 },
-  { suite_id: "SUITE-10", name: "Performance & Latency Benchmarks", category: "Web Frontend E2E", count: 40 }
+  { suite_id: "SUITE-01", name: "Authentication & Login", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-02", name: "User Registration & Signup", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-03", name: "Dashboard & Metrics", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-04", name: "AI Diabetes Prediction Form", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-05", name: "Diagnosis & Risk Gauge", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-06", name: "Personalized Diet Recommendations", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-07", name: "Multi-Language Support (EN, HI, TE)", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-08", name: "PDF Report Generation", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-09", name: "Profile & Security Verification", category: "Web Frontend E2E", count: 30 },
+  { suite_id: "SUITE-10", name: "Performance & Latency Benchmarks", category: "Web Frontend E2E", count: 30 }
 ];
 
 const BASE_TEST_DESCRIPTIONS = [

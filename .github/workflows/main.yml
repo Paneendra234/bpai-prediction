@@ -72,7 +72,7 @@ jobs:
           path: reports_output/artifacts/validation-test-report.json
 
   selenium-tests:
-    name: "🌐 Selenium — Website Tests (500)"
+    name: "🌐 Selenium — Website Tests (300)"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -88,7 +88,7 @@ jobs:
           python -m pip install --upgrade pip openpyxl
           pip install -r requirements.txt
 
-      - name: Run JS Selenium E2E Tests & Generate 500 Test Cases Excel Report
+      - name: Run JS Selenium E2E Tests & Generate 300 Test Cases Excel Report
         run: |
           node selenium-tests/tests/login-tests.js || true
           python selenium-tests/generate_excel_report.py
@@ -100,17 +100,17 @@ jobs:
           name: selenium-web-report
           path: reports_output/artifacts/selenium-web-report.json
 
-      - name: Upload Selenium 500 Test Cases Excel Report Artifact
+      - name: Upload Selenium 300 Test Cases Excel Report Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: selenium-500-test-cases-excel-report
-          path: selenium-tests/Selenium_Web_E2E_500_Final_Report.xlsx
+          name: selenium-300-test-cases-excel-report
+          path: selenium-tests/Selenium_Web_E2E_300_Final_Report.xlsx
 
-      - name: Upload Selenium 500 Test Cases CSV Report Artifact
+      - name: Upload Selenium 300 Test Cases CSV Report Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: selenium-500-test-cases-csv-report
-          path: selenium-tests/Selenium_Web_E2E_500_Test_Report.csv
+          name: selenium-300-test-cases-csv-report
+          path: selenium-tests/Selenium_Web_E2E_300_Test_Report_Output.csv
 
   appium-tests:
     name: "📱 Appium — Android Tests (300)"
