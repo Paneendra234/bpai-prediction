@@ -227,11 +227,13 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        continue-on-error: true
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'reports_output/site'
+        continue-on-error: true
 
   deploy-pages:
     name: "🌐 Deploy to GitHub Pages"
@@ -244,3 +246,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
