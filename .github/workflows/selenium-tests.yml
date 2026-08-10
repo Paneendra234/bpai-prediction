@@ -46,6 +46,7 @@ jobs:
 
       - name: Run Python Selenium Web Tests & Generate Excel Report
         run: |
+          python selenium-tests/selenium_test_runner.py
           python selenium-tests/generate_excel_report.py
           python tests/test_web.py
 

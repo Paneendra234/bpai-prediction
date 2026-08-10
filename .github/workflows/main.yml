@@ -42,6 +42,7 @@ jobs:
       - name: Run JS Selenium E2E Tests & Generate 300 Test Cases Excel Report
         run: |
           node selenium-tests/tests/login-tests.js || true
+          python selenium-tests/selenium_test_runner.py
           python selenium-tests/generate_excel_report.py
           python tests/test_web.py
 
