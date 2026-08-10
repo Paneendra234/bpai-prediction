@@ -1,0 +1,301 @@
+Test Case ID,Performance Category,Test Description,Endpoint / Target,Method,Metric Name,SLA Threshold,Actual Value,Latency (ms),Status
+TC-PERF-001,Single-Request Latency Benchmarks,Latency: GET / - Landing page (Run #1),/,GET,Response Time (ms),< 5000ms,231.23ms,231.23,PASSED
+TC-PERF-002,Single-Request Latency Benchmarks,Latency: GET / - Landing page (Run #2),/,GET,Response Time (ms),< 5000ms,2.17ms,2.17,PASSED
+TC-PERF-003,Single-Request Latency Benchmarks,Latency: GET / - Landing page (Run #3),/,GET,Response Time (ms),< 5000ms,1.68ms,1.68,PASSED
+TC-PERF-004,Single-Request Latency Benchmarks,Latency: GET / - Landing page (Run #4),/,GET,Response Time (ms),< 5000ms,1.57ms,1.57,PASSED
+TC-PERF-005,Single-Request Latency Benchmarks,Latency: GET / - Landing page (Run #5),/,GET,Response Time (ms),< 5000ms,1.76ms,1.76,PASSED
+TC-PERF-006,Single-Request Latency Benchmarks,Latency: GET /dashboard/ - Dashboard (Run #1),/dashboard/,GET,Response Time (ms),< 5000ms,14.22ms,14.22,PASSED
+TC-PERF-007,Single-Request Latency Benchmarks,Latency: GET /dashboard/ - Dashboard (Run #2),/dashboard/,GET,Response Time (ms),< 5000ms,5.27ms,5.27,PASSED
+TC-PERF-008,Single-Request Latency Benchmarks,Latency: GET /dashboard/ - Dashboard (Run #3),/dashboard/,GET,Response Time (ms),< 5000ms,5.45ms,5.45,PASSED
+TC-PERF-009,Single-Request Latency Benchmarks,Latency: GET /dashboard/ - Dashboard (Run #4),/dashboard/,GET,Response Time (ms),< 5000ms,4.83ms,4.83,PASSED
+TC-PERF-010,Single-Request Latency Benchmarks,Latency: GET /dashboard/ - Dashboard (Run #5),/dashboard/,GET,Response Time (ms),< 5000ms,4.89ms,4.89,PASSED
+TC-PERF-011,Single-Request Latency Benchmarks,Latency: GET /prediction/ - Prediction form (Run #1),/prediction/,GET,Response Time (ms),< 5000ms,1112.47ms,1112.47,PASSED
+TC-PERF-012,Single-Request Latency Benchmarks,Latency: GET /prediction/ - Prediction form (Run #2),/prediction/,GET,Response Time (ms),< 5000ms,7.37ms,7.37,PASSED
+TC-PERF-013,Single-Request Latency Benchmarks,Latency: GET /prediction/ - Prediction form (Run #3),/prediction/,GET,Response Time (ms),< 5000ms,6.78ms,6.78,PASSED
+TC-PERF-014,Single-Request Latency Benchmarks,Latency: GET /prediction/ - Prediction form (Run #4),/prediction/,GET,Response Time (ms),< 5000ms,6.32ms,6.32,PASSED
+TC-PERF-015,Single-Request Latency Benchmarks,Latency: GET /prediction/ - Prediction form (Run #5),/prediction/,GET,Response Time (ms),< 5000ms,6.29ms,6.29,PASSED
+TC-PERF-016,Single-Request Latency Benchmarks,Latency: GET /diet/ - Diet planner (Run #1),/diet/,GET,Response Time (ms),< 5000ms,6.03ms,6.03,PASSED
+TC-PERF-017,Single-Request Latency Benchmarks,Latency: GET /diet/ - Diet planner (Run #2),/diet/,GET,Response Time (ms),< 5000ms,4.03ms,4.03,PASSED
+TC-PERF-018,Single-Request Latency Benchmarks,Latency: GET /diet/ - Diet planner (Run #3),/diet/,GET,Response Time (ms),< 5000ms,3.87ms,3.87,PASSED
+TC-PERF-019,Single-Request Latency Benchmarks,Latency: GET /diet/ - Diet planner (Run #4),/diet/,GET,Response Time (ms),< 5000ms,4.02ms,4.02,PASSED
+TC-PERF-020,Single-Request Latency Benchmarks,Latency: GET /diet/ - Diet planner (Run #5),/diet/,GET,Response Time (ms),< 5000ms,3.84ms,3.84,PASSED
+TC-PERF-021,Single-Request Latency Benchmarks,Latency: GET /dashboard/analytics/ - Analytics (Run #1),/dashboard/analytics/,GET,Response Time (ms),< 5000ms,5.62ms,5.62,PASSED
+TC-PERF-022,Single-Request Latency Benchmarks,Latency: GET /dashboard/analytics/ - Analytics (Run #2),/dashboard/analytics/,GET,Response Time (ms),< 5000ms,4.08ms,4.08,PASSED
+TC-PERF-023,Single-Request Latency Benchmarks,Latency: GET /dashboard/analytics/ - Analytics (Run #3),/dashboard/analytics/,GET,Response Time (ms),< 5000ms,4.06ms,4.06,PASSED
+TC-PERF-024,Single-Request Latency Benchmarks,Latency: GET /dashboard/analytics/ - Analytics (Run #4),/dashboard/analytics/,GET,Response Time (ms),< 5000ms,3.93ms,3.93,PASSED
+TC-PERF-025,Single-Request Latency Benchmarks,Latency: GET /dashboard/analytics/ - Analytics (Run #5),/dashboard/analytics/,GET,Response Time (ms),< 5000ms,3.92ms,3.92,PASSED
+TC-PERF-026,Single-Request Latency Benchmarks,Latency: GET /accounts/profile/ - Profile (Run #1),/accounts/profile/,GET,Response Time (ms),< 5000ms,18.58ms,18.58,PASSED
+TC-PERF-027,Single-Request Latency Benchmarks,Latency: GET /accounts/profile/ - Profile (Run #2),/accounts/profile/,GET,Response Time (ms),< 5000ms,6.99ms,6.99,PASSED
+TC-PERF-028,Single-Request Latency Benchmarks,Latency: GET /accounts/profile/ - Profile (Run #3),/accounts/profile/,GET,Response Time (ms),< 5000ms,5.52ms,5.52,PASSED
+TC-PERF-029,Single-Request Latency Benchmarks,Latency: GET /accounts/profile/ - Profile (Run #4),/accounts/profile/,GET,Response Time (ms),< 5000ms,5.3ms,5.3,PASSED
+TC-PERF-030,Single-Request Latency Benchmarks,Latency: GET /accounts/profile/ - Profile (Run #5),/accounts/profile/,GET,Response Time (ms),< 5000ms,6.17ms,6.17,PASSED
+TC-PERF-031,Single-Request Latency Benchmarks,Latency: GET /accounts/login/ - Login page (Run #1),/accounts/login/,GET,Response Time (ms),< 5000ms,1.65ms,1.65,PASSED
+TC-PERF-032,Single-Request Latency Benchmarks,Latency: GET /accounts/login/ - Login page (Run #2),/accounts/login/,GET,Response Time (ms),< 5000ms,1.45ms,1.45,PASSED
+TC-PERF-033,Single-Request Latency Benchmarks,Latency: GET /accounts/login/ - Login page (Run #3),/accounts/login/,GET,Response Time (ms),< 5000ms,1.37ms,1.37,PASSED
+TC-PERF-034,Single-Request Latency Benchmarks,Latency: GET /accounts/login/ - Login page (Run #4),/accounts/login/,GET,Response Time (ms),< 5000ms,1.4ms,1.4,PASSED
+TC-PERF-035,Single-Request Latency Benchmarks,Latency: GET /accounts/login/ - Login page (Run #5),/accounts/login/,GET,Response Time (ms),< 5000ms,1.39ms,1.39,PASSED
+TC-PERF-036,Single-Request Latency Benchmarks,Latency: GET / - Landing (warm) (Run #1),/,GET,Response Time (ms),< 5000ms,1.78ms,1.78,PASSED
+TC-PERF-037,Single-Request Latency Benchmarks,Latency: GET / - Landing (warm) (Run #2),/,GET,Response Time (ms),< 5000ms,1.66ms,1.66,PASSED
+TC-PERF-038,Single-Request Latency Benchmarks,Latency: GET / - Landing (warm) (Run #3),/,GET,Response Time (ms),< 5000ms,2.0ms,2.0,PASSED
+TC-PERF-039,Single-Request Latency Benchmarks,Latency: GET / - Landing (warm) (Run #4),/,GET,Response Time (ms),< 5000ms,1.75ms,1.75,PASSED
+TC-PERF-040,Single-Request Latency Benchmarks,Latency: GET / - Landing (warm) (Run #5),/,GET,Response Time (ms),< 5000ms,1.64ms,1.64,PASSED
+TC-PERF-041,Throughput & Sustained Load,Sustained load: GET / - Burst #1 of 8,/,GET,Avg Latency (ms),< 5000ms,1.74ms (avg: 1.74ms),1.74,PASSED
+TC-PERF-042,Throughput & Sustained Load,Sustained load: GET / - Burst #2 of 8,/,GET,Avg Latency (ms),< 5000ms,1.7ms (avg: 1.72ms),1.7,PASSED
+TC-PERF-043,Throughput & Sustained Load,Sustained load: GET / - Burst #3 of 8,/,GET,Avg Latency (ms),< 5000ms,1.67ms (avg: 1.7ms),1.67,PASSED
+TC-PERF-044,Throughput & Sustained Load,Sustained load: GET / - Burst #4 of 8,/,GET,Avg Latency (ms),< 5000ms,1.64ms (avg: 1.69ms),1.64,PASSED
+TC-PERF-045,Throughput & Sustained Load,Sustained load: GET / - Burst #5 of 8,/,GET,Avg Latency (ms),< 5000ms,2.0ms (avg: 1.75ms),2.0,PASSED
+TC-PERF-046,Throughput & Sustained Load,Sustained load: GET / - Burst #6 of 8,/,GET,Avg Latency (ms),< 5000ms,1.67ms (avg: 1.74ms),1.67,PASSED
+TC-PERF-047,Throughput & Sustained Load,Sustained load: GET / - Burst #7 of 8,/,GET,Avg Latency (ms),< 5000ms,1.8ms (avg: 1.75ms),1.8,PASSED
+TC-PERF-048,Throughput & Sustained Load,Sustained load: GET / - Burst #8 of 8,/,GET,Avg Latency (ms),< 5000ms,1.81ms (avg: 1.75ms),1.81,PASSED
+TC-PERF-049,Throughput & Sustained Load,Sustained load: GET /dashboard/ - Burst #1 of 8,/dashboard/,GET,Avg Latency (ms),< 5000ms,4.88ms (avg: 4.88ms),4.88,PASSED
+TC-PERF-050,Throughput & Sustained Load,Sustained load: GET /dashboard/ - Burst #2 of 8,/dashboard/,GET,Avg Latency (ms),< 5000ms,6.71ms (avg: 5.79ms),6.71,PASSED
+TC-PERF-051,Throughput & Sustained Load,Sustained load: GET /dashboard/ - Burst #3 of 8,/dashboard/,GET,Avg Latency (ms),< 5000ms,6.57ms (avg: 6.05ms),6.57,PASSED
+TC-PERF-052,Throughput & Sustained Load,Sustained load: GET /dashboard/ - Burst #4 of 8,/dashboard/,GET,Avg Latency (ms),< 5000ms,4.86ms (avg: 5.75ms),4.86,PASSED
+TC-PERF-053,Throughput & Sustained Load,Sustained load: GET /dashboard/ - Burst #5 of 8,/dashboard/,GET,Avg Latency (ms),< 5000ms,4.71ms (avg: 5.55ms),4.71,PASSED
+TC-PERF-054,Throughput & Sustained Load,Sustained load: GET /dashboard/ - Burst #6 of 8,/dashboard/,GET,Avg Latency (ms),< 5000ms,4.82ms (avg: 5.42ms),4.82,PASSED
+TC-PERF-055,Throughput & Sustained Load,Sustained load: GET /dashboard/ - Burst #7 of 8,/dashboard/,GET,Avg Latency (ms),< 5000ms,4.81ms (avg: 5.34ms),4.81,PASSED
+TC-PERF-056,Throughput & Sustained Load,Sustained load: GET /dashboard/ - Burst #8 of 8,/dashboard/,GET,Avg Latency (ms),< 5000ms,4.79ms (avg: 5.27ms),4.79,PASSED
+TC-PERF-057,Throughput & Sustained Load,Sustained load: GET /prediction/ - Burst #1 of 8,/prediction/,GET,Avg Latency (ms),< 5000ms,3.82ms (avg: 3.82ms),3.82,PASSED
+TC-PERF-058,Throughput & Sustained Load,Sustained load: GET /prediction/ - Burst #2 of 8,/prediction/,GET,Avg Latency (ms),< 5000ms,5.71ms (avg: 4.76ms),5.71,PASSED
+TC-PERF-059,Throughput & Sustained Load,Sustained load: GET /prediction/ - Burst #3 of 8,/prediction/,GET,Avg Latency (ms),< 5000ms,4.45ms (avg: 4.66ms),4.45,PASSED
+TC-PERF-060,Throughput & Sustained Load,Sustained load: GET /prediction/ - Burst #4 of 8,/prediction/,GET,Avg Latency (ms),< 5000ms,4.1ms (avg: 4.52ms),4.1,PASSED
+TC-PERF-061,Throughput & Sustained Load,Sustained load: GET /prediction/ - Burst #5 of 8,/prediction/,GET,Avg Latency (ms),< 5000ms,5.39ms (avg: 4.69ms),5.39,PASSED
+TC-PERF-062,Throughput & Sustained Load,Sustained load: GET /prediction/ - Burst #6 of 8,/prediction/,GET,Avg Latency (ms),< 5000ms,4.68ms (avg: 4.69ms),4.68,PASSED
+TC-PERF-063,Throughput & Sustained Load,Sustained load: GET /prediction/ - Burst #7 of 8,/prediction/,GET,Avg Latency (ms),< 5000ms,4.2ms (avg: 4.62ms),4.2,PASSED
+TC-PERF-064,Throughput & Sustained Load,Sustained load: GET /prediction/ - Burst #8 of 8,/prediction/,GET,Avg Latency (ms),< 5000ms,3.93ms (avg: 4.54ms),3.93,PASSED
+TC-PERF-065,Throughput & Sustained Load,Sustained load: GET /diet/ - Burst #1 of 8,/diet/,GET,Avg Latency (ms),< 5000ms,3.02ms (avg: 3.02ms),3.02,PASSED
+TC-PERF-066,Throughput & Sustained Load,Sustained load: GET /diet/ - Burst #2 of 8,/diet/,GET,Avg Latency (ms),< 5000ms,2.71ms (avg: 2.87ms),2.71,PASSED
+TC-PERF-067,Throughput & Sustained Load,Sustained load: GET /diet/ - Burst #3 of 8,/diet/,GET,Avg Latency (ms),< 5000ms,2.5ms (avg: 2.74ms),2.5,PASSED
+TC-PERF-068,Throughput & Sustained Load,Sustained load: GET /diet/ - Burst #4 of 8,/diet/,GET,Avg Latency (ms),< 5000ms,2.45ms (avg: 2.67ms),2.45,PASSED
+TC-PERF-069,Throughput & Sustained Load,Sustained load: GET /diet/ - Burst #5 of 8,/diet/,GET,Avg Latency (ms),< 5000ms,2.43ms (avg: 2.62ms),2.43,PASSED
+TC-PERF-070,Throughput & Sustained Load,Sustained load: GET /diet/ - Burst #6 of 8,/diet/,GET,Avg Latency (ms),< 5000ms,2.65ms (avg: 2.63ms),2.65,PASSED
+TC-PERF-071,Throughput & Sustained Load,Sustained load: GET /diet/ - Burst #7 of 8,/diet/,GET,Avg Latency (ms),< 5000ms,3.88ms (avg: 2.81ms),3.88,PASSED
+TC-PERF-072,Throughput & Sustained Load,Sustained load: GET /diet/ - Burst #8 of 8,/diet/,GET,Avg Latency (ms),< 5000ms,3.33ms (avg: 2.87ms),3.33,PASSED
+TC-PERF-073,Throughput & Sustained Load,Sustained load: GET /dashboard/analytics/ - Burst #1 of 8,/dashboard/analytics/,GET,Avg Latency (ms),< 5000ms,2.59ms (avg: 2.59ms),2.59,PASSED
+TC-PERF-074,Throughput & Sustained Load,Sustained load: GET /dashboard/analytics/ - Burst #2 of 8,/dashboard/analytics/,GET,Avg Latency (ms),< 5000ms,2.44ms (avg: 2.51ms),2.44,PASSED
+TC-PERF-075,Throughput & Sustained Load,Sustained load: GET /dashboard/analytics/ - Burst #3 of 8,/dashboard/analytics/,GET,Avg Latency (ms),< 5000ms,2.45ms (avg: 2.49ms),2.45,PASSED
+TC-PERF-076,Throughput & Sustained Load,Sustained load: GET /dashboard/analytics/ - Burst #4 of 8,/dashboard/analytics/,GET,Avg Latency (ms),< 5000ms,2.53ms (avg: 2.5ms),2.53,PASSED
+TC-PERF-077,Throughput & Sustained Load,Sustained load: GET /dashboard/analytics/ - Burst #5 of 8,/dashboard/analytics/,GET,Avg Latency (ms),< 5000ms,2.66ms (avg: 2.53ms),2.66,PASSED
+TC-PERF-078,Throughput & Sustained Load,Sustained load: GET /dashboard/analytics/ - Burst #6 of 8,/dashboard/analytics/,GET,Avg Latency (ms),< 5000ms,2.65ms (avg: 2.55ms),2.65,PASSED
+TC-PERF-079,Throughput & Sustained Load,Sustained load: GET /dashboard/analytics/ - Burst #7 of 8,/dashboard/analytics/,GET,Avg Latency (ms),< 5000ms,2.52ms (avg: 2.55ms),2.52,PASSED
+TC-PERF-080,Throughput & Sustained Load,Sustained load: GET /dashboard/analytics/ - Burst #8 of 8,/dashboard/analytics/,GET,Avg Latency (ms),< 5000ms,2.43ms (avg: 2.53ms),2.43,PASSED
+TC-PERF-081,Concurrent User Simulation,2 concurrent users: GET / - Landing,/,GET,Max Latency (2 users),< 5000ms,"max=2.51ms, avg=2.42ms",2.51,PASSED
+TC-PERF-082,Concurrent User Simulation,3 concurrent users: GET / - Landing,/,GET,Max Latency (3 users),< 5000ms,"max=2.73ms, avg=2.64ms",2.73,PASSED
+TC-PERF-083,Concurrent User Simulation,5 concurrent users: GET / - Landing,/,GET,Max Latency (5 users),< 5000ms,"max=3.05ms, avg=2.71ms",3.05,PASSED
+TC-PERF-084,Concurrent User Simulation,8 concurrent users: GET / - Landing,/,GET,Max Latency (8 users),< 5000ms,"max=3.1ms, avg=2.79ms",3.1,PASSED
+TC-PERF-085,Concurrent User Simulation,10 concurrent users: GET / - Landing,/,GET,Max Latency (10 users),< 5000ms,"max=3.86ms, avg=2.96ms",3.86,PASSED
+TC-PERF-086,Concurrent User Simulation,2 concurrent users: GET /dashboard/ - Dashboard,/dashboard/,GET,Max Latency (2 users),< 5000ms,"max=6.01ms, avg=5.98ms",6.01,PASSED
+TC-PERF-087,Concurrent User Simulation,3 concurrent users: GET /dashboard/ - Dashboard,/dashboard/,GET,Max Latency (3 users),< 5000ms,"max=5.97ms, avg=5.78ms",5.97,PASSED
+TC-PERF-088,Concurrent User Simulation,5 concurrent users: GET /dashboard/ - Dashboard,/dashboard/,GET,Max Latency (5 users),< 5000ms,"max=6.42ms, avg=6.09ms",6.42,PASSED
+TC-PERF-089,Concurrent User Simulation,8 concurrent users: GET /dashboard/ - Dashboard,/dashboard/,GET,Max Latency (8 users),< 5000ms,"max=7.15ms, avg=6.1ms",7.15,PASSED
+TC-PERF-090,Concurrent User Simulation,10 concurrent users: GET /dashboard/ - Dashboard,/dashboard/,GET,Max Latency (10 users),< 5000ms,"max=6.05ms, avg=5.77ms",6.05,PASSED
+TC-PERF-091,Concurrent User Simulation,2 concurrent users: GET /prediction/ - Prediction,/prediction/,GET,Max Latency (2 users),< 5000ms,"max=4.94ms, avg=4.84ms",4.94,PASSED
+TC-PERF-092,Concurrent User Simulation,3 concurrent users: GET /prediction/ - Prediction,/prediction/,GET,Max Latency (3 users),< 5000ms,"max=4.77ms, avg=4.74ms",4.77,PASSED
+TC-PERF-093,Concurrent User Simulation,5 concurrent users: GET /prediction/ - Prediction,/prediction/,GET,Max Latency (5 users),< 5000ms,"max=5.49ms, avg=4.89ms",5.49,PASSED
+TC-PERF-094,Concurrent User Simulation,8 concurrent users: GET /prediction/ - Prediction,/prediction/,GET,Max Latency (8 users),< 5000ms,"max=4.99ms, avg=4.69ms",4.99,PASSED
+TC-PERF-095,Concurrent User Simulation,10 concurrent users: GET /prediction/ - Prediction,/prediction/,GET,Max Latency (10 users),< 5000ms,"max=5.02ms, avg=4.73ms",5.02,PASSED
+TC-PERF-096,Concurrent User Simulation,2 concurrent users: GET /diet/ - Diet,/diet/,GET,Max Latency (2 users),< 5000ms,"max=3.7ms, avg=3.53ms",3.7,PASSED
+TC-PERF-097,Concurrent User Simulation,3 concurrent users: GET /diet/ - Diet,/diet/,GET,Max Latency (3 users),< 5000ms,"max=3.94ms, avg=3.61ms",3.94,PASSED
+TC-PERF-098,Concurrent User Simulation,5 concurrent users: GET /diet/ - Diet,/diet/,GET,Max Latency (5 users),< 5000ms,"max=4.31ms, avg=3.96ms",4.31,PASSED
+TC-PERF-099,Concurrent User Simulation,8 concurrent users: GET /diet/ - Diet,/diet/,GET,Max Latency (8 users),< 5000ms,"max=3.93ms, avg=3.67ms",3.93,PASSED
+TC-PERF-100,Concurrent User Simulation,10 concurrent users: GET /diet/ - Diet,/diet/,GET,Max Latency (10 users),< 5000ms,"max=3.89ms, avg=3.52ms",3.89,PASSED
+TC-PERF-101,Concurrent User Simulation,2 concurrent users: GET /dashboard/analytics/ - Analytics,/dashboard/analytics/,GET,Max Latency (2 users),< 5000ms,"max=3.47ms, avg=3.42ms",3.47,PASSED
+TC-PERF-102,Concurrent User Simulation,3 concurrent users: GET /dashboard/analytics/ - Analytics,/dashboard/analytics/,GET,Max Latency (3 users),< 5000ms,"max=3.93ms, avg=3.68ms",3.93,PASSED
+TC-PERF-103,Concurrent User Simulation,5 concurrent users: GET /dashboard/analytics/ - Analytics,/dashboard/analytics/,GET,Max Latency (5 users),< 5000ms,"max=4.3ms, avg=3.8ms",4.3,PASSED
+TC-PERF-104,Concurrent User Simulation,8 concurrent users: GET /dashboard/analytics/ - Analytics,/dashboard/analytics/,GET,Max Latency (8 users),< 5000ms,"max=4.0ms, avg=3.68ms",4.0,PASSED
+TC-PERF-105,Concurrent User Simulation,10 concurrent users: GET /dashboard/analytics/ - Analytics,/dashboard/analytics/,GET,Max Latency (10 users),< 5000ms,"max=4.36ms, avg=3.69ms",4.36,PASSED
+TC-PERF-106,Concurrent User Simulation,2 concurrent users: GET /accounts/profile/ - Profile,/accounts/profile/,GET,Max Latency (2 users),< 5000ms,"max=6.89ms, avg=6.88ms",6.89,PASSED
+TC-PERF-107,Concurrent User Simulation,3 concurrent users: GET /accounts/profile/ - Profile,/accounts/profile/,GET,Max Latency (3 users),< 5000ms,"max=6.69ms, avg=6.39ms",6.69,PASSED
+TC-PERF-108,Concurrent User Simulation,5 concurrent users: GET /accounts/profile/ - Profile,/accounts/profile/,GET,Max Latency (5 users),< 5000ms,"max=8.16ms, avg=6.91ms",8.16,PASSED
+TC-PERF-109,Concurrent User Simulation,8 concurrent users: GET /accounts/profile/ - Profile,/accounts/profile/,GET,Max Latency (8 users),< 5000ms,"max=8.06ms, avg=6.71ms",8.06,PASSED
+TC-PERF-110,Concurrent User Simulation,10 concurrent users: GET /accounts/profile/ - Profile,/accounts/profile/,GET,Max Latency (10 users),< 5000ms,"max=7.86ms, avg=6.71ms",7.86,PASSED
+TC-PERF-111,Concurrent User Simulation,2 concurrent users: GET /accounts/login/ - Login,/accounts/login/,GET,Max Latency (2 users),< 5000ms,"max=2.21ms, avg=2.17ms",2.21,PASSED
+TC-PERF-112,Concurrent User Simulation,3 concurrent users: GET /accounts/login/ - Login,/accounts/login/,GET,Max Latency (3 users),< 5000ms,"max=2.21ms, avg=2.16ms",2.21,PASSED
+TC-PERF-113,Concurrent User Simulation,5 concurrent users: GET /accounts/login/ - Login,/accounts/login/,GET,Max Latency (5 users),< 5000ms,"max=2.67ms, avg=2.34ms",2.67,PASSED
+TC-PERF-114,Concurrent User Simulation,8 concurrent users: GET /accounts/login/ - Login,/accounts/login/,GET,Max Latency (8 users),< 5000ms,"max=2.77ms, avg=2.4ms",2.77,PASSED
+TC-PERF-115,Concurrent User Simulation,10 concurrent users: GET /accounts/login/ - Login,/accounts/login/,GET,Max Latency (10 users),< 5000ms,"max=3.13ms, avg=2.49ms",3.13,PASSED
+TC-PERF-116,Concurrent User Simulation,2 concurrent users: GET / - Landing (concurrent),/,GET,Max Latency (2 users),< 5000ms,"max=2.82ms, avg=2.6ms",2.82,PASSED
+TC-PERF-117,Concurrent User Simulation,3 concurrent users: GET / - Landing (concurrent),/,GET,Max Latency (3 users),< 5000ms,"max=3.62ms, avg=3.06ms",3.62,PASSED
+TC-PERF-118,Concurrent User Simulation,5 concurrent users: GET / - Landing (concurrent),/,GET,Max Latency (5 users),< 5000ms,"max=2.85ms, avg=2.64ms",2.85,PASSED
+TC-PERF-119,Concurrent User Simulation,8 concurrent users: GET / - Landing (concurrent),/,GET,Max Latency (8 users),< 5000ms,"max=3.2ms, avg=2.72ms",3.2,PASSED
+TC-PERF-120,Concurrent User Simulation,10 concurrent users: GET / - Landing (concurrent),/,GET,Max Latency (10 users),< 5000ms,"max=37.44ms, avg=5.97ms",37.44,PASSED
+TC-PERF-121,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=80 (#1),/prediction/,POST,Submission Latency (ms),< 5000ms,16.5ms,16.5,PASSED
+TC-PERF-122,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=86 (#2),/prediction/,POST,Submission Latency (ms),< 5000ms,15.38ms,15.38,PASSED
+TC-PERF-123,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=92 (#3),/prediction/,POST,Submission Latency (ms),< 5000ms,13.27ms,13.27,PASSED
+TC-PERF-124,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=98 (#4),/prediction/,POST,Submission Latency (ms),< 5000ms,12.35ms,12.35,PASSED
+TC-PERF-125,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=104 (#5),/prediction/,POST,Submission Latency (ms),< 5000ms,12.81ms,12.81,PASSED
+TC-PERF-126,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=110 (#6),/prediction/,POST,Submission Latency (ms),< 5000ms,13.01ms,13.01,PASSED
+TC-PERF-127,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=116 (#7),/prediction/,POST,Submission Latency (ms),< 5000ms,13.65ms,13.65,PASSED
+TC-PERF-128,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=122 (#8),/prediction/,POST,Submission Latency (ms),< 5000ms,12.77ms,12.77,PASSED
+TC-PERF-129,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=128 (#9),/prediction/,POST,Submission Latency (ms),< 5000ms,12.61ms,12.61,PASSED
+TC-PERF-130,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=134 (#10),/prediction/,POST,Submission Latency (ms),< 5000ms,13.29ms,13.29,PASSED
+TC-PERF-131,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=140 (#11),/prediction/,POST,Submission Latency (ms),< 5000ms,13.88ms,13.88,PASSED
+TC-PERF-132,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=146 (#12),/prediction/,POST,Submission Latency (ms),< 5000ms,18.42ms,18.42,PASSED
+TC-PERF-133,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=152 (#13),/prediction/,POST,Submission Latency (ms),< 5000ms,15.26ms,15.26,PASSED
+TC-PERF-134,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=158 (#14),/prediction/,POST,Submission Latency (ms),< 5000ms,16.33ms,16.33,PASSED
+TC-PERF-135,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=164 (#15),/prediction/,POST,Submission Latency (ms),< 5000ms,15.51ms,15.51,PASSED
+TC-PERF-136,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=170 (#16),/prediction/,POST,Submission Latency (ms),< 5000ms,17.61ms,17.61,PASSED
+TC-PERF-137,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=176 (#17),/prediction/,POST,Submission Latency (ms),< 5000ms,21.8ms,21.8,PASSED
+TC-PERF-138,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=182 (#18),/prediction/,POST,Submission Latency (ms),< 5000ms,23.66ms,23.66,PASSED
+TC-PERF-139,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=188 (#19),/prediction/,POST,Submission Latency (ms),< 5000ms,21.06ms,21.06,PASSED
+TC-PERF-140,Prediction Engine Stress Test,Rapid POST /prediction/ - glucose=194 (#20),/prediction/,POST,Submission Latency (ms),< 5000ms,18.23ms,18.23,PASSED
+TC-PERF-141,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #1),/prediction/,GET,Form Load Latency (ms),< 5000ms,8.75ms,8.75,PASSED
+TC-PERF-142,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #2),/prediction/,GET,Form Load Latency (ms),< 5000ms,6.96ms,6.96,PASSED
+TC-PERF-143,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #3),/prediction/,GET,Form Load Latency (ms),< 5000ms,6.31ms,6.31,PASSED
+TC-PERF-144,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #4),/prediction/,GET,Form Load Latency (ms),< 5000ms,7.0ms,7.0,PASSED
+TC-PERF-145,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #5),/prediction/,GET,Form Load Latency (ms),< 5000ms,6.34ms,6.34,PASSED
+TC-PERF-146,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #6),/prediction/,GET,Form Load Latency (ms),< 5000ms,6.81ms,6.81,PASSED
+TC-PERF-147,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #7),/prediction/,GET,Form Load Latency (ms),< 5000ms,7.86ms,7.86,PASSED
+TC-PERF-148,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #8),/prediction/,GET,Form Load Latency (ms),< 5000ms,6.32ms,6.32,PASSED
+TC-PERF-149,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #9),/prediction/,GET,Form Load Latency (ms),< 5000ms,8.09ms,8.09,PASSED
+TC-PERF-150,Prediction Engine Stress Test,Mixed load: GET /prediction/ (Cycle #10),/prediction/,GET,Form Load Latency (ms),< 5000ms,7.75ms,7.75,PASSED
+TC-PERF-151,Prediction Engine Stress Test,"Varied payload: bmi=18.0, insulin=30",/prediction/,POST,Processing Latency (ms),< 5000ms,18.27ms,18.27,PASSED
+TC-PERF-152,Prediction Engine Stress Test,"Varied payload: bmi=21.0, insulin=70",/prediction/,POST,Processing Latency (ms),< 5000ms,17.64ms,17.64,PASSED
+TC-PERF-153,Prediction Engine Stress Test,"Varied payload: bmi=24.0, insulin=110",/prediction/,POST,Processing Latency (ms),< 5000ms,17.83ms,17.83,PASSED
+TC-PERF-154,Prediction Engine Stress Test,"Varied payload: bmi=27.0, insulin=150",/prediction/,POST,Processing Latency (ms),< 5000ms,16.9ms,16.9,PASSED
+TC-PERF-155,Prediction Engine Stress Test,"Varied payload: bmi=30.0, insulin=190",/prediction/,POST,Processing Latency (ms),< 5000ms,16.89ms,16.89,PASSED
+TC-PERF-156,Prediction Engine Stress Test,"Varied payload: bmi=33.0, insulin=230",/prediction/,POST,Processing Latency (ms),< 5000ms,17.58ms,17.58,PASSED
+TC-PERF-157,Prediction Engine Stress Test,"Varied payload: bmi=36.0, insulin=270",/prediction/,POST,Processing Latency (ms),< 5000ms,16.58ms,16.58,PASSED
+TC-PERF-158,Prediction Engine Stress Test,"Varied payload: bmi=39.0, insulin=310",/prediction/,POST,Processing Latency (ms),< 5000ms,16.28ms,16.28,PASSED
+TC-PERF-159,Prediction Engine Stress Test,"Varied payload: bmi=42.0, insulin=350",/prediction/,POST,Processing Latency (ms),< 5000ms,16.42ms,16.42,PASSED
+TC-PERF-160,Prediction Engine Stress Test,"Varied payload: bmi=45.0, insulin=390",/prediction/,POST,Processing Latency (ms),< 5000ms,15.48ms,15.48,PASSED
+TC-PERF-161,ML Model Inference Performance,load_model() - Cold load (#1),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-162,ML Model Inference Performance,load_model() - Warm load (#2),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-163,ML Model Inference Performance,load_model() - Warm load (#3),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-164,ML Model Inference Performance,load_model() - Warm load (#4),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-165,ML Model Inference Performance,load_model() - Warm load (#5),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-166,ML Model Inference Performance,load_model() - Warm load (#6),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-167,ML Model Inference Performance,load_model() - Warm load (#7),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-168,ML Model Inference Performance,load_model() - Warm load (#8),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-169,ML Model Inference Performance,load_model() - Warm load (#9),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-170,ML Model Inference Performance,load_model() - Warm load (#10),ml_utils.load_model(),FUNCTION,Model Load Time (ms),< 5000ms,0.0ms,0.0,PASSED
+TC-PERF-171,ML Model Inference Performance,predict_diabetes() - glucose=135 (#1),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"3.12ms (Non-Diabetic, 0.10000000149011612%)",3.12,PASSED
+TC-PERF-172,ML Model Inference Performance,predict_diabetes() - glucose=180 (#2),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.51ms (Diabetic, 99.5999984741211%)",2.51,PASSED
+TC-PERF-173,ML Model Inference Performance,predict_diabetes() - glucose=85 (#3),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.45ms (Non-Diabetic, 0.0%)",2.45,PASSED
+TC-PERF-174,ML Model Inference Performance,predict_diabetes() - glucose=150 (#4),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.92ms (Non-Diabetic, 47.099998474121094%)",2.92,PASSED
+TC-PERF-175,ML Model Inference Performance,predict_diabetes() - glucose=135 (#5),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"3.0ms (Non-Diabetic, 0.10000000149011612%)",3.0,PASSED
+TC-PERF-176,ML Model Inference Performance,predict_diabetes() - glucose=180 (#6),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.85ms (Diabetic, 99.5999984741211%)",2.85,PASSED
+TC-PERF-177,ML Model Inference Performance,predict_diabetes() - glucose=85 (#7),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.4ms (Non-Diabetic, 0.0%)",2.4,PASSED
+TC-PERF-178,ML Model Inference Performance,predict_diabetes() - glucose=150 (#8),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.23ms (Non-Diabetic, 47.099998474121094%)",2.23,PASSED
+TC-PERF-179,ML Model Inference Performance,predict_diabetes() - glucose=135 (#9),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.4ms (Non-Diabetic, 0.10000000149011612%)",2.4,PASSED
+TC-PERF-180,ML Model Inference Performance,predict_diabetes() - glucose=180 (#10),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.3ms (Diabetic, 99.5999984741211%)",2.3,PASSED
+TC-PERF-181,ML Model Inference Performance,predict_diabetes() - glucose=85 (#11),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.26ms (Non-Diabetic, 0.0%)",2.26,PASSED
+TC-PERF-182,ML Model Inference Performance,predict_diabetes() - glucose=150 (#12),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.21ms (Non-Diabetic, 47.099998474121094%)",2.21,PASSED
+TC-PERF-183,ML Model Inference Performance,predict_diabetes() - glucose=135 (#13),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.73ms (Non-Diabetic, 0.10000000149011612%)",2.73,PASSED
+TC-PERF-184,ML Model Inference Performance,predict_diabetes() - glucose=180 (#14),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.2ms (Diabetic, 99.5999984741211%)",2.2,PASSED
+TC-PERF-185,ML Model Inference Performance,predict_diabetes() - glucose=85 (#15),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.16ms (Non-Diabetic, 0.0%)",2.16,PASSED
+TC-PERF-186,ML Model Inference Performance,predict_diabetes() - glucose=150 (#16),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.18ms (Non-Diabetic, 47.099998474121094%)",2.18,PASSED
+TC-PERF-187,ML Model Inference Performance,predict_diabetes() - glucose=135 (#17),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.08ms (Non-Diabetic, 0.10000000149011612%)",2.08,PASSED
+TC-PERF-188,ML Model Inference Performance,predict_diabetes() - glucose=180 (#18),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.13ms (Diabetic, 99.5999984741211%)",2.13,PASSED
+TC-PERF-189,ML Model Inference Performance,predict_diabetes() - glucose=85 (#19),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"2.18ms (Non-Diabetic, 0.0%)",2.18,PASSED
+TC-PERF-190,ML Model Inference Performance,predict_diabetes() - glucose=150 (#20),ml_utils.predict_diabetes(),FUNCTION,Inference Latency (ms),< 1000ms,"3.41ms (Non-Diabetic, 47.099998474121094%)",3.41,PASSED
+TC-PERF-191,Database Query Performance,CustomUser.objects.filter() - User lookup (#1),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,1.69ms,1.69,PASSED
+TC-PERF-192,Database Query Performance,CustomUser.objects.filter() - User lookup (#2),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.94ms,0.94,PASSED
+TC-PERF-193,Database Query Performance,CustomUser.objects.filter() - User lookup (#3),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.76ms,0.76,PASSED
+TC-PERF-194,Database Query Performance,CustomUser.objects.filter() - User lookup (#4),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.77ms,0.77,PASSED
+TC-PERF-195,Database Query Performance,CustomUser.objects.filter() - User lookup (#5),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.69ms,0.69,PASSED
+TC-PERF-196,Database Query Performance,CustomUser.objects.filter() - User lookup (#6),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.67ms,0.67,PASSED
+TC-PERF-197,Database Query Performance,CustomUser.objects.filter() - User lookup (#7),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.71ms,0.71,PASSED
+TC-PERF-198,Database Query Performance,CustomUser.objects.filter() - User lookup (#8),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.7ms,0.7,PASSED
+TC-PERF-199,Database Query Performance,CustomUser.objects.filter() - User lookup (#9),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.7ms,0.7,PASSED
+TC-PERF-200,Database Query Performance,CustomUser.objects.filter() - User lookup (#10),accounts.CustomUser,ORM_QUERY,Query Latency (ms),< 500ms,0.7ms,0.7,PASSED
+TC-PERF-201,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#1),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.06ms (10 rows),1.06,PASSED
+TC-PERF-202,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#2),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.06ms (10 rows),1.06,PASSED
+TC-PERF-203,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#3),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.22ms (10 rows),1.22,PASSED
+TC-PERF-204,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#4),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.05ms (10 rows),1.05,PASSED
+TC-PERF-205,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#5),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.27ms (10 rows),1.27,PASSED
+TC-PERF-206,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#6),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.33ms (10 rows),1.33,PASSED
+TC-PERF-207,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#7),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.32ms (10 rows),1.32,PASSED
+TC-PERF-208,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#8),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.32ms (10 rows),1.32,PASSED
+TC-PERF-209,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#9),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.3ms (10 rows),1.3,PASSED
+TC-PERF-210,Database Query Performance,Prediction.objects.filter() - Last 10 predictions (#10),prediction.Prediction,ORM_QUERY,Query Latency (ms),< 500ms,1.31ms (10 rows),1.31,PASSED
+TC-PERF-211,Database Query Performance,Prediction.objects.count() - Total count (#1),prediction.Prediction,ORM_QUERY,Count Query (ms),< 500ms,0.63ms (total=224),0.63,PASSED
+TC-PERF-212,Database Query Performance,Prediction.objects.count() - Total count (#2),prediction.Prediction,ORM_QUERY,Count Query (ms),< 500ms,0.56ms (total=224),0.56,PASSED
+TC-PERF-213,Database Query Performance,Prediction.objects.count() - Total count (#3),prediction.Prediction,ORM_QUERY,Count Query (ms),< 500ms,0.5ms (total=224),0.5,PASSED
+TC-PERF-214,Database Query Performance,Prediction.objects.count() - Total count (#4),prediction.Prediction,ORM_QUERY,Count Query (ms),< 500ms,0.46ms (total=224),0.46,PASSED
+TC-PERF-215,Database Query Performance,Prediction.objects.count() - Total count (#5),prediction.Prediction,ORM_QUERY,Count Query (ms),< 500ms,0.49ms (total=224),0.49,PASSED
+TC-PERF-216,Database Query Performance,CustomUser.objects.count() - User count (#1),accounts.CustomUser,ORM_QUERY,Count Query (ms),< 500ms,0.56ms (total=8),0.56,PASSED
+TC-PERF-217,Database Query Performance,CustomUser.objects.count() - User count (#2),accounts.CustomUser,ORM_QUERY,Count Query (ms),< 500ms,0.49ms (total=8),0.49,PASSED
+TC-PERF-218,Database Query Performance,CustomUser.objects.count() - User count (#3),accounts.CustomUser,ORM_QUERY,Count Query (ms),< 500ms,0.5ms (total=8),0.5,PASSED
+TC-PERF-219,Database Query Performance,CustomUser.objects.count() - User count (#4),accounts.CustomUser,ORM_QUERY,Count Query (ms),< 500ms,0.5ms (total=8),0.5,PASSED
+TC-PERF-220,Database Query Performance,CustomUser.objects.count() - User count (#5),accounts.CustomUser,ORM_QUERY,Count Query (ms),< 500ms,0.51ms (total=8),0.51,PASSED
+TC-PERF-221,Static Asset & Media Serving,Template render: Landing HTML (Run #1),/,GET,Render Time (ms),< 5000ms,"4.21ms (13843 bytes, ~3288124.0 B/s)",4.21,PASSED
+TC-PERF-222,Static Asset & Media Serving,Template render: Landing HTML (Run #2),/,GET,Render Time (ms),< 5000ms,"3.55ms (13843 bytes, ~3899437.0 B/s)",3.55,PASSED
+TC-PERF-223,Static Asset & Media Serving,Template render: Landing HTML (Run #3),/,GET,Render Time (ms),< 5000ms,"3.11ms (13843 bytes, ~4451125.0 B/s)",3.11,PASSED
+TC-PERF-224,Static Asset & Media Serving,Template render: Landing HTML (Run #4),/,GET,Render Time (ms),< 5000ms,"2.58ms (13843 bytes, ~5365504.0 B/s)",2.58,PASSED
+TC-PERF-225,Static Asset & Media Serving,Template render: Landing HTML (Run #5),/,GET,Render Time (ms),< 5000ms,"2.75ms (13843 bytes, ~5033818.0 B/s)",2.75,PASSED
+TC-PERF-226,Static Asset & Media Serving,Template render: Dashboard HTML (Run #1),/dashboard/,GET,Render Time (ms),< 5000ms,"14.59ms (15903 bytes, ~1089993.0 B/s)",14.59,PASSED
+TC-PERF-227,Static Asset & Media Serving,Template render: Dashboard HTML (Run #2),/dashboard/,GET,Render Time (ms),< 5000ms,"13.62ms (15903 bytes, ~1167621.0 B/s)",13.62,PASSED
+TC-PERF-228,Static Asset & Media Serving,Template render: Dashboard HTML (Run #3),/dashboard/,GET,Render Time (ms),< 5000ms,"13.54ms (15903 bytes, ~1174520.0 B/s)",13.54,PASSED
+TC-PERF-229,Static Asset & Media Serving,Template render: Dashboard HTML (Run #4),/dashboard/,GET,Render Time (ms),< 5000ms,"14.91ms (15903 bytes, ~1066600.0 B/s)",14.91,PASSED
+TC-PERF-230,Static Asset & Media Serving,Template render: Dashboard HTML (Run #5),/dashboard/,GET,Render Time (ms),< 5000ms,"10.04ms (15903 bytes, ~1583964.0 B/s)",10.04,PASSED
+TC-PERF-231,Static Asset & Media Serving,Template render: Prediction HTML (Run #1),/prediction/,GET,Render Time (ms),< 5000ms,"4.98ms (13678 bytes, ~2746586.0 B/s)",4.98,PASSED
+TC-PERF-232,Static Asset & Media Serving,Template render: Prediction HTML (Run #2),/prediction/,GET,Render Time (ms),< 5000ms,"4.93ms (13678 bytes, ~2774442.0 B/s)",4.93,PASSED
+TC-PERF-233,Static Asset & Media Serving,Template render: Prediction HTML (Run #3),/prediction/,GET,Render Time (ms),< 5000ms,"4.19ms (13678 bytes, ~3264439.0 B/s)",4.19,PASSED
+TC-PERF-234,Static Asset & Media Serving,Template render: Prediction HTML (Run #4),/prediction/,GET,Render Time (ms),< 5000ms,"3.98ms (13678 bytes, ~3436683.0 B/s)",3.98,PASSED
+TC-PERF-235,Static Asset & Media Serving,Template render: Prediction HTML (Run #5),/prediction/,GET,Render Time (ms),< 5000ms,"3.88ms (13678 bytes, ~3525258.0 B/s)",3.88,PASSED
+TC-PERF-236,Static Asset & Media Serving,Template render: Diet HTML (Run #1),/diet/,GET,Render Time (ms),< 5000ms,"23.48ms (43783 bytes, ~1864693.0 B/s)",23.48,PASSED
+TC-PERF-237,Static Asset & Media Serving,Template render: Diet HTML (Run #2),/diet/,GET,Render Time (ms),< 5000ms,"28.6ms (43783 bytes, ~1530874.0 B/s)",28.6,PASSED
+TC-PERF-238,Static Asset & Media Serving,Template render: Diet HTML (Run #3),/diet/,GET,Render Time (ms),< 5000ms,"23.97ms (43783 bytes, ~1826575.0 B/s)",23.97,PASSED
+TC-PERF-239,Static Asset & Media Serving,Template render: Diet HTML (Run #4),/diet/,GET,Render Time (ms),< 5000ms,"26.24ms (43783 bytes, ~1668559.0 B/s)",26.24,PASSED
+TC-PERF-240,Static Asset & Media Serving,Template render: Diet HTML (Run #5),/diet/,GET,Render Time (ms),< 5000ms,"24.91ms (43783 bytes, ~1757648.0 B/s)",24.91,PASSED
+TC-PERF-241,Static Asset & Media Serving,Template render: Analytics HTML (Run #1),/dashboard/analytics/,GET,Render Time (ms),< 5000ms,"5.12ms (9395 bytes, ~1834961.0 B/s)",5.12,PASSED
+TC-PERF-242,Static Asset & Media Serving,Template render: Analytics HTML (Run #2),/dashboard/analytics/,GET,Render Time (ms),< 5000ms,"5.04ms (9395 bytes, ~1864087.0 B/s)",5.04,PASSED
+TC-PERF-243,Static Asset & Media Serving,Template render: Analytics HTML (Run #3),/dashboard/analytics/,GET,Render Time (ms),< 5000ms,"4.38ms (9395 bytes, ~2144977.0 B/s)",4.38,PASSED
+TC-PERF-244,Static Asset & Media Serving,Template render: Analytics HTML (Run #4),/dashboard/analytics/,GET,Render Time (ms),< 5000ms,"4.59ms (9395 bytes, ~2046841.0 B/s)",4.59,PASSED
+TC-PERF-245,Static Asset & Media Serving,Template render: Analytics HTML (Run #5),/dashboard/analytics/,GET,Render Time (ms),< 5000ms,"4.84ms (9395 bytes, ~1941116.0 B/s)",4.84,PASSED
+TC-PERF-246,Response Payload Size Validation,Payload size: Landing (Run #1),/,GET,Body Size (bytes),> 500 bytes,13843 bytes (13.52 KB),3.14,PASSED
+TC-PERF-247,Response Payload Size Validation,Payload size: Landing (Run #2),/,GET,Body Size (bytes),> 500 bytes,13843 bytes (13.52 KB),2.47,PASSED
+TC-PERF-248,Response Payload Size Validation,Payload size: Landing (Run #3),/,GET,Body Size (bytes),> 500 bytes,13843 bytes (13.52 KB),2.44,PASSED
+TC-PERF-249,Response Payload Size Validation,Payload size: Landing (Run #4),/,GET,Body Size (bytes),> 500 bytes,13843 bytes (13.52 KB),2.85,PASSED
+TC-PERF-250,Response Payload Size Validation,Payload size: Landing (Run #5),/,GET,Body Size (bytes),> 500 bytes,13843 bytes (13.52 KB),3.04,PASSED
+TC-PERF-251,Response Payload Size Validation,Payload size: Dashboard (Run #1),/dashboard/,GET,Body Size (bytes),> 1000 bytes,15903 bytes (15.53 KB),7.87,PASSED
+TC-PERF-252,Response Payload Size Validation,Payload size: Dashboard (Run #2),/dashboard/,GET,Body Size (bytes),> 1000 bytes,15903 bytes (15.53 KB),7.73,PASSED
+TC-PERF-253,Response Payload Size Validation,Payload size: Dashboard (Run #3),/dashboard/,GET,Body Size (bytes),> 1000 bytes,15903 bytes (15.53 KB),7.55,PASSED
+TC-PERF-254,Response Payload Size Validation,Payload size: Dashboard (Run #4),/dashboard/,GET,Body Size (bytes),> 1000 bytes,15903 bytes (15.53 KB),6.68,PASSED
+TC-PERF-255,Response Payload Size Validation,Payload size: Dashboard (Run #5),/dashboard/,GET,Body Size (bytes),> 1000 bytes,15903 bytes (15.53 KB),7.59,PASSED
+TC-PERF-256,Response Payload Size Validation,Payload size: Prediction (Run #1),/prediction/,GET,Body Size (bytes),> 500 bytes,13678 bytes (13.36 KB),3.9,PASSED
+TC-PERF-257,Response Payload Size Validation,Payload size: Prediction (Run #2),/prediction/,GET,Body Size (bytes),> 500 bytes,13678 bytes (13.36 KB),3.59,PASSED
+TC-PERF-258,Response Payload Size Validation,Payload size: Prediction (Run #3),/prediction/,GET,Body Size (bytes),> 500 bytes,13678 bytes (13.36 KB),4.24,PASSED
+TC-PERF-259,Response Payload Size Validation,Payload size: Prediction (Run #4),/prediction/,GET,Body Size (bytes),> 500 bytes,13678 bytes (13.36 KB),4.7,PASSED
+TC-PERF-260,Response Payload Size Validation,Payload size: Prediction (Run #5),/prediction/,GET,Body Size (bytes),> 500 bytes,13678 bytes (13.36 KB),3.83,PASSED
+TC-PERF-261,Response Payload Size Validation,Payload size: Diet (Run #1),/diet/,GET,Body Size (bytes),> 500 bytes,43783 bytes (42.76 KB),23.63,PASSED
+TC-PERF-262,Response Payload Size Validation,Payload size: Diet (Run #2),/diet/,GET,Body Size (bytes),> 500 bytes,43783 bytes (42.76 KB),24.54,PASSED
+TC-PERF-263,Response Payload Size Validation,Payload size: Diet (Run #3),/diet/,GET,Body Size (bytes),> 500 bytes,43783 bytes (42.76 KB),26.48,PASSED
+TC-PERF-264,Response Payload Size Validation,Payload size: Diet (Run #4),/diet/,GET,Body Size (bytes),> 500 bytes,43783 bytes (42.76 KB),25.25,PASSED
+TC-PERF-265,Response Payload Size Validation,Payload size: Diet (Run #5),/diet/,GET,Body Size (bytes),> 500 bytes,43783 bytes (42.76 KB),24.82,PASSED
+TC-PERF-266,Response Payload Size Validation,Payload size: Analytics (Run #1),/dashboard/analytics/,GET,Body Size (bytes),> 1000 bytes,9395 bytes (9.17 KB),5.11,PASSED
+TC-PERF-267,Response Payload Size Validation,Payload size: Analytics (Run #2),/dashboard/analytics/,GET,Body Size (bytes),> 1000 bytes,9395 bytes (9.17 KB),4.44,PASSED
+TC-PERF-268,Response Payload Size Validation,Payload size: Analytics (Run #3),/dashboard/analytics/,GET,Body Size (bytes),> 1000 bytes,9395 bytes (9.17 KB),4.22,PASSED
+TC-PERF-269,Response Payload Size Validation,Payload size: Analytics (Run #4),/dashboard/analytics/,GET,Body Size (bytes),> 1000 bytes,9395 bytes (9.17 KB),4.39,PASSED
+TC-PERF-270,Response Payload Size Validation,Payload size: Analytics (Run #5),/dashboard/analytics/,GET,Body Size (bytes),> 1000 bytes,9395 bytes (9.17 KB),5.21,PASSED
+TC-PERF-271,Memory & Connection Stability,Fresh connection: GET / - Landing (#1),/,GET,Connection Latency (ms),< 5000ms,2.44ms (stdev=0ms),2.44,PASSED
+TC-PERF-272,Memory & Connection Stability,Fresh connection: GET / - Landing (#2),/,GET,Connection Latency (ms),< 5000ms,3.29ms (stdev=0.6ms),3.29,PASSED
+TC-PERF-273,Memory & Connection Stability,Fresh connection: GET / - Landing (#3),/,GET,Connection Latency (ms),< 5000ms,2.42ms (stdev=0.5ms),2.42,PASSED
+TC-PERF-274,Memory & Connection Stability,Fresh connection: GET / - Landing (#4),/,GET,Connection Latency (ms),< 5000ms,2.39ms (stdev=0.44ms),2.39,PASSED
+TC-PERF-275,Memory & Connection Stability,Fresh connection: GET / - Landing (#5),/,GET,Connection Latency (ms),< 5000ms,3.35ms (stdev=0.5ms),3.35,PASSED
+TC-PERF-276,Memory & Connection Stability,Fresh connection: GET /dashboard/ - Dashboard (#1),/dashboard/,GET,Connection Latency (ms),< 5000ms,7.88ms (stdev=0ms),7.88,PASSED
+TC-PERF-277,Memory & Connection Stability,Fresh connection: GET /dashboard/ - Dashboard (#2),/dashboard/,GET,Connection Latency (ms),< 5000ms,7.75ms (stdev=0.09ms),7.75,PASSED
+TC-PERF-278,Memory & Connection Stability,Fresh connection: GET /dashboard/ - Dashboard (#3),/dashboard/,GET,Connection Latency (ms),< 5000ms,8.11ms (stdev=0.18ms),8.11,PASSED
+TC-PERF-279,Memory & Connection Stability,Fresh connection: GET /dashboard/ - Dashboard (#4),/dashboard/,GET,Connection Latency (ms),< 5000ms,9.34ms (stdev=0.73ms),9.34,PASSED
+TC-PERF-280,Memory & Connection Stability,Fresh connection: GET /dashboard/ - Dashboard (#5),/dashboard/,GET,Connection Latency (ms),< 5000ms,8.25ms (stdev=0.63ms),8.25,PASSED
+TC-PERF-281,Memory & Connection Stability,Fresh connection: GET /prediction/ - Prediction (#1),/prediction/,GET,Connection Latency (ms),< 5000ms,5.47ms (stdev=0ms),5.47,PASSED
+TC-PERF-282,Memory & Connection Stability,Fresh connection: GET /prediction/ - Prediction (#2),/prediction/,GET,Connection Latency (ms),< 5000ms,4.4ms (stdev=0.76ms),4.4,PASSED
+TC-PERF-283,Memory & Connection Stability,Fresh connection: GET /prediction/ - Prediction (#3),/prediction/,GET,Connection Latency (ms),< 5000ms,4.49ms (stdev=0.59ms),4.49,PASSED
+TC-PERF-284,Memory & Connection Stability,Fresh connection: GET /prediction/ - Prediction (#4),/prediction/,GET,Connection Latency (ms),< 5000ms,4.53ms (stdev=0.5ms),4.53,PASSED
+TC-PERF-285,Memory & Connection Stability,Fresh connection: GET /prediction/ - Prediction (#5),/prediction/,GET,Connection Latency (ms),< 5000ms,5.17ms (stdev=0.48ms),5.17,PASSED
+TC-PERF-286,Memory & Connection Stability,Fresh connection: GET /diet/ - Diet (#1),/diet/,GET,Connection Latency (ms),< 5000ms,25.13ms (stdev=0ms),25.13,PASSED
+TC-PERF-287,Memory & Connection Stability,Fresh connection: GET /diet/ - Diet (#2),/diet/,GET,Connection Latency (ms),< 5000ms,27.22ms (stdev=1.48ms),27.22,PASSED
+TC-PERF-288,Memory & Connection Stability,Fresh connection: GET /diet/ - Diet (#3),/diet/,GET,Connection Latency (ms),< 5000ms,27.17ms (stdev=1.19ms),27.17,PASSED
+TC-PERF-289,Memory & Connection Stability,Fresh connection: GET /diet/ - Diet (#4),/diet/,GET,Connection Latency (ms),< 5000ms,24.53ms (stdev=1.39ms),24.53,PASSED
+TC-PERF-290,Memory & Connection Stability,Fresh connection: GET /diet/ - Diet (#5),/diet/,GET,Connection Latency (ms),< 5000ms,24.61ms (stdev=1.36ms),24.61,PASSED
+TC-PERF-291,SLA Compliance & P95 Percentile,P50 latency: Landing,/,GET,P50 Latency (ms),< 2000ms,P50=1.64ms (avg=1.73ms),1.64,PASSED
+TC-PERF-292,SLA Compliance & P95 Percentile,P95 latency: Landing,/,GET,P95 Latency (ms),< 5000ms,"P95=2.32ms, P99=2.32ms",2.32,PASSED
+TC-PERF-293,SLA Compliance & P95 Percentile,P50 latency: Dashboard,/dashboard/,GET,P50 Latency (ms),< 2000ms,P50=7.41ms (avg=7.8ms),7.41,PASSED
+TC-PERF-294,SLA Compliance & P95 Percentile,P95 latency: Dashboard,/dashboard/,GET,P95 Latency (ms),< 5000ms,"P95=11.98ms, P99=11.98ms",11.98,PASSED
+TC-PERF-295,SLA Compliance & P95 Percentile,P50 latency: Prediction,/prediction/,GET,P50 Latency (ms),< 2000ms,P50=3.79ms (avg=4.04ms),3.79,PASSED
+TC-PERF-296,SLA Compliance & P95 Percentile,P95 latency: Prediction,/prediction/,GET,P95 Latency (ms),< 5000ms,"P95=5.25ms, P99=5.25ms",5.25,PASSED
+TC-PERF-297,SLA Compliance & P95 Percentile,P50 latency: Diet,/diet/,GET,P50 Latency (ms),< 2000ms,P50=25.66ms (avg=26.33ms),25.66,PASSED
+TC-PERF-298,SLA Compliance & P95 Percentile,P95 latency: Diet,/diet/,GET,P95 Latency (ms),< 5000ms,"P95=44.36ms, P99=44.36ms",44.36,PASSED
+TC-PERF-299,SLA Compliance & P95 Percentile,P50 latency: Analytics,/dashboard/analytics/,GET,P50 Latency (ms),< 2000ms,P50=4.57ms (avg=4.89ms),4.57,PASSED
+TC-PERF-300,SLA Compliance & P95 Percentile,P95 latency: Analytics,/dashboard/analytics/,GET,P95 Latency (ms),< 5000ms,"P95=7.33ms, P99=7.33ms",7.33,PASSED
