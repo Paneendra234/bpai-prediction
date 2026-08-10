@@ -1,14 +1,4 @@
-import os
-import json
-from datetime import datetime
-
-def generate_pages_site():
-    os.makedirs('_site', exist_ok=True)
-    os.makedirs('_site/reports', exist_ok=True)
-
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    html_content = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,7 +8,7 @@ def generate_pages_site():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {{
+    :root {
       --bg-dark: #0d1117;
       --card-bg: rgba(22, 27, 34, 0.75);
       --card-border: rgba(48, 54, 61, 0.8);
@@ -31,10 +21,10 @@ def generate_pages_site():
       --text-muted: #8b949e;
       --text-dim: #6e7681;
       --shadow-glow: 0 0 25px rgba(46, 160, 67, 0.15);
-    }}
+    }
 
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-dark);
       color: var(--text-main);
@@ -43,30 +33,30 @@ def generate_pages_site():
       background-image: 
         radial-gradient(circle at 15% 15%, rgba(46, 160, 67, 0.08) 0%, transparent 45%),
         radial-gradient(circle at 85% 85%, rgba(47, 129, 247, 0.08) 0%, transparent 45%);
-    }}
+    }
 
-    .container {{
+    .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem;
-    }}
+    }
 
-    header {{
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-bottom: 2rem;
       border-bottom: 1px solid var(--card-border);
       margin-bottom: 2.5rem;
-    }}
+    }
 
-    .brand {{
+    .brand {
       display: flex;
       align-items: center;
       gap: 1rem;
-    }}
+    }
 
-    .logo-badge {{
+    .logo-badge {
       width: 48px;
       height: 48px;
       background: linear-gradient(135deg, #2ea043, #2f81f7);
@@ -78,20 +68,20 @@ def generate_pages_site():
       font-size: 1.4rem;
       color: #fff;
       box-shadow: 0 4px 15px rgba(46, 160, 67, 0.3);
-    }}
+    }
 
-    h1 {{
+    h1 {
       font-size: 1.75rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-    }}
+    }
 
-    .subtitle {{
+    .subtitle {
       color: var(--text-muted);
       font-size: 0.9rem;
-    }}
+    }
 
-    .header-badge {{
+    .header-badge {
       background: rgba(46, 160, 67, 0.15);
       border: 1px solid var(--accent-green-bright);
       color: #3fb950;
@@ -103,94 +93,94 @@ def generate_pages_site():
       align-items: center;
       gap: 0.5rem;
       box-shadow: var(--shadow-glow);
-    }}
+    }
 
-    .pulse-dot {{
+    .pulse-dot {
       width: 8px;
       height: 8px;
       background-color: #3fb950;
       border-radius: 50%;
       box-shadow: 0 0 10px #3fb950;
       animation: pulse 2s infinite;
-    }}
+    }
 
-    @keyframes pulse {{
-      0% {{ transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.7); }}
-      70% {{ transform: scale(1); box-shadow: 0 0 0 8px rgba(63, 185, 80, 0); }}
-      100% {{ transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 185, 80, 0); }}
-    }}
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(63, 185, 80, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 185, 80, 0); }
+    }
 
     /* KPI Grid */
-    .kpi-grid {{
+    .kpi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem;
       margin-bottom: 2.5rem;
-    }}
+    }
 
-    .kpi-card {{
+    .kpi-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       backdrop-filter: blur(12px);
       padding: 1.5rem;
       border-radius: 14px;
       transition: transform 0.2s ease, border-color 0.2s ease;
-    }}
+    }
 
-    .kpi-card:hover {{
+    .kpi-card:hover {
       transform: translateY(-3px);
       border-color: rgba(56, 139, 253, 0.4);
-    }}
+    }
 
-    .kpi-title {{
+    .kpi-title {
       color: var(--text-muted);
       font-size: 0.85rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 0.5rem;
-    }}
+    }
 
-    .kpi-value {{
+    .kpi-value {
       font-size: 2.2rem;
       font-weight: 800;
       letter-spacing: -0.03em;
-    }}
+    }
 
-    .kpi-subtext {{
+    .kpi-subtext {
       color: #3fb950;
       font-size: 0.85rem;
       font-weight: 600;
       margin-top: 0.25rem;
-    }}
+    }
 
     /* Section Styling */
-    .section-title {{
+    .section-title {
       font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
-    }}
+    }
 
     /* Table Card */
-    .table-card {{
+    .table-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       backdrop-filter: blur(12px);
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 2.5rem;
-    }}
+    }
 
-    table {{
+    table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-    }}
+    }
 
-    th {{
+    th {
       background-color: rgba(33, 38, 45, 0.9);
       color: var(--text-muted);
       font-weight: 600;
@@ -199,31 +189,31 @@ def generate_pages_site():
       letter-spacing: 0.05em;
       padding: 1rem 1.5rem;
       border-bottom: 1px solid var(--card-border);
-    }}
+    }
 
-    td {{
+    td {
       padding: 1.1rem 1.5rem;
       border-bottom: 1px solid rgba(48, 54, 61, 0.5);
       font-size: 0.95rem;
-    }}
+    }
 
-    tr:last-child td {{
+    tr:last-child td {
       border-bottom: none;
-    }}
+    }
 
-    tr:hover {{
+    tr:hover {
       background-color: rgba(48, 54, 61, 0.3);
-    }}
+    }
 
-    .suite-name {{
+    .suite-name {
       font-weight: 600;
       color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 0.75rem;
-    }}
+    }
 
-    .status-pill {{
+    .status-pill {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -234,9 +224,9 @@ def generate_pages_site():
       background: rgba(46, 160, 67, 0.15);
       border: 1px solid rgba(63, 185, 80, 0.4);
       color: #3fb950;
-    }}
+    }
 
-    .badge-100 {{
+    .badge-100 {
       background: rgba(47, 129, 247, 0.15);
       color: #58a6ff;
       border: 1px solid rgba(88, 166, 255, 0.4);
@@ -245,9 +235,9 @@ def generate_pages_site():
       font-size: 0.85rem;
       font-weight: 700;
       font-family: 'JetBrains Mono', monospace;
-    }}
+    }
 
-    .download-btn {{
+    .download-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -260,32 +250,32 @@ def generate_pages_site():
       background: rgba(47, 129, 247, 0.1);
       border: 1px solid rgba(47, 129, 247, 0.3);
       transition: all 0.2s ease;
-    }}
+    }
 
-    .download-btn:hover {{
+    .download-btn:hover {
       background: rgba(47, 129, 247, 0.25);
       border-color: var(--accent-blue);
       color: #fff;
-    }}
+    }
 
     /* Footer */
-    footer {{
+    footer {
       text-align: center;
       padding-top: 2rem;
       padding-bottom: 2rem;
       color: var(--text-dim);
       font-size: 0.85rem;
       border-top: 1px solid var(--card-border);
-    }}
+    }
 
-    footer a {{
+    footer a {
       color: var(--text-muted);
       text-decoration: none;
-    }}
+    }
 
-    footer a:hover {{
+    footer a:hover {
       color: var(--accent-blue);
-    }}
+    }
   </style>
 </head>
 <body>
@@ -478,23 +468,9 @@ def generate_pages_site():
     </div>
 
     <footer>
-      <p>HealthMate AI Continuous Integration & Deployment Pipeline | Updated: {timestamp}</p>
+      <p>HealthMate AI Continuous Integration & Deployment Pipeline | Updated: 2026-08-10 21:16:08</p>
       <p style="margin-top: 0.4rem;"><a href="https://github.com/Paneendra234/bpai-prediction" target="_blank">View GitHub Repository: Paneendra234/bpai-prediction</a></p>
     </footer>
   </div>
 </body>
 </html>
-"""
-
-    os.makedirs('docs', exist_ok=True)
-
-    with open('_site/index.html', 'w', encoding='utf-8') as f:
-        f.write(html_content)
-
-    with open('docs/index.html', 'w', encoding='utf-8') as f:
-        f.write(html_content)
-
-    print("Static pages site generated at _site/index.html and docs/index.html")
-
-if __name__ == '__main__':
-    generate_pages_site()

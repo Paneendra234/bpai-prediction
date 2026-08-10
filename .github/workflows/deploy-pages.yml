@@ -97,11 +97,23 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || 'https://Paneendra234.github.io/bpai-prediction/' }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Build Static Site for Branch Deployment
+        run: |
+          python -m pip install --upgrade pip openpyxl django
+          python scripts/build_pages_site.py
+
+      - name: Deploy to GitHub Pages (Actions Deployment)
         id: deployment
         uses: actions/deploy-pages@v4
         continue-on-error: true
 
-      - name: Ensure Deployment Output URL
-        run: |
-          echo "Deployment URL: https://Paneendra234.github.io/bpai-prediction/"
+      - name: Deploy to gh-pages Branch
+        id: gh_pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          force_orphan: true
