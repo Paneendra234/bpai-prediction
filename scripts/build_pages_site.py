@@ -494,7 +494,10 @@ def generate_pages_site():
     with open('docs/index.html', 'w', encoding='utf-8') as f:
         f.write(html_content)
 
-    print("Static pages site generated at _site/index.html and docs/index.html")
+    with open('index.html', 'w', encoding='utf-8') as f:
+        f.write(html_content)
+
+    print("Static pages site generated at _site/index.html, docs/index.html, and root index.html")
 
 if __name__ == '__main__':
     generate_pages_site()
