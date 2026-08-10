@@ -1,0 +1,66 @@
+name: DAST 300 Vulnerability Test Suite
+
+on:
+  push:
+    branches: [ main, master, workflow-pipeline ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "dast-tests"
+  cancel-in-progress: false
+
+jobs:
+  dast-vulnerability-300:
+    name: "🛡️ DAST — 300 Vulnerability Test Cases & Excel Report"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip openpyxl django
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Execute DAST 300 Vulnerability Test Runner
+        run: |
+          python dast-tests/dast_test_runner.py
+
+      - name: Generate DAST 300 Test Cases Excel & CSV Reports
+        run: |
+          python dast-tests/generate_dast_excel_report.py
+
+      - name: Upload DAST Vulnerability JSON Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dast-vulnerability-report-json
+          path: reports_output/artifacts/dast-vulnerability-report.json
+
+      - name: Upload DAST 300 Test Cases Excel Report Artifact (.xlsx)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dast-300-vulnerability-excel-report
+          path: |
+            dast-tests/DAST_Vulnerability_300_Final_Report.xlsx
+            dast-tests/DAST_Vulnerability_300_Test_Report.xlsx
+
+      - name: Upload DAST 300 Test Cases CSV Report Artifact (.csv)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dast-300-vulnerability-csv-report
+          path: |
+            dast-tests/DAST_Vulnerability_300_Test_Report.csv
+            dast-tests/DAST_Vulnerability_300_Test_Report_Output.csv
