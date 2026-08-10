@@ -1,0 +1,66 @@
+name: Appium Mobile 300 Test Suite
+
+on:
+  push:
+    branches: [ main, master, workflow-pipeline ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "appium-tests"
+  cancel-in-progress: false
+
+jobs:
+  appium-mobile-300:
+    name: "📱 Appium Mobile — 300 Test Cases & Excel Report"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip openpyxl django
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Execute Appium Mobile 300 Test Runner
+        run: |
+          python appium-tests/appium_test_runner.py
+
+      - name: Generate Appium Mobile 300 Test Cases Excel & CSV Reports
+        run: |
+          python appium-tests/generate_appium_excel_report.py
+
+      - name: Upload Appium Mobile JSON Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-report-json
+          path: reports_output/artifacts/appium-report.json
+
+      - name: Upload Appium Mobile 300 Test Cases Excel Report Artifact (.xlsx)
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-300-excel-report
+          path: |
+            appium-tests/Appium_Mobile_300_Final_Report.xlsx
+            appium-tests/Appium_Mobile_300_Test_Report.xlsx
+
+      - name: Upload Appium Mobile 300 Test Cases CSV Report Artifact (.csv)
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-300-csv-report
+          path: |
+            appium-tests/Appium_Mobile_300_Test_Report.csv
+            appium-tests/Appium_Mobile_300_Test_Report_Output.csv
