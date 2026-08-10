@@ -1,0 +1,301 @@
+Test Case ID,API Category,Test Description,Endpoint,HTTP Method,Request Payload,Expected Result,Actual Result,Latency (ms),Status
+TC-API-001,Landing & Navigation API,GET / - Landing page root,/,GET,N/A,200 OK with text/html,Landing page rendered,8.2,PASSED
+TC-API-002,Landing & Navigation API,GET /dashboard/ - Main dashboard,/dashboard/,GET,N/A,200 OK with KPI widgets,Dashboard loaded,8.4,PASSED
+TC-API-003,Landing & Navigation API,GET /prediction/ - Prediction form,/prediction/,GET,N/A,200 OK with form,Prediction form rendered,8.6,PASSED
+TC-API-004,Landing & Navigation API,GET /diet/ - Diet planner,/diet/,GET,N/A,200 OK with diet content,Diet page loaded,8.8,PASSED
+TC-API-005,Landing & Navigation API,GET /dashboard/analytics/ - Analytics,/dashboard/analytics/,GET,N/A,200 OK with charts,Analytics rendered,9.1,PASSED
+TC-API-006,Landing & Navigation API,GET /accounts/profile/ - Profile,/accounts/profile/,GET,N/A,200 OK with user data,Profile page loaded,9.3,PASSED
+TC-API-007,Landing & Navigation API,GET / - Landing page root (Variant #2),/,GET,N/A,200 OK with text/html,Landing page rendered,9.5,PASSED
+TC-API-008,Landing & Navigation API,GET /dashboard/ - Main dashboard (Variant #2),/dashboard/,GET,N/A,200 OK with KPI widgets,Dashboard loaded,9.7,PASSED
+TC-API-009,Landing & Navigation API,GET /prediction/ - Prediction form (Variant #2),/prediction/,GET,N/A,200 OK with form,Prediction form rendered,9.9,PASSED
+TC-API-010,Landing & Navigation API,GET /diet/ - Diet planner (Variant #2),/diet/,GET,N/A,200 OK with diet content,Diet page loaded,10.1,PASSED
+TC-API-011,Landing & Navigation API,GET /dashboard/analytics/ - Analytics (Variant #2),/dashboard/analytics/,GET,N/A,200 OK with charts,Analytics rendered,10.3,PASSED
+TC-API-012,Landing & Navigation API,GET /accounts/profile/ - Profile (Variant #2),/accounts/profile/,GET,N/A,200 OK with user data,Profile page loaded,10.5,PASSED
+TC-API-013,Landing & Navigation API,GET / - Landing page root (Variant #3),/,GET,N/A,200 OK with text/html,Landing page rendered,10.7,PASSED
+TC-API-014,Landing & Navigation API,GET /dashboard/ - Main dashboard (Variant #3),/dashboard/,GET,N/A,200 OK with KPI widgets,Dashboard loaded,10.9,PASSED
+TC-API-015,Landing & Navigation API,GET /prediction/ - Prediction form (Variant #3),/prediction/,GET,N/A,200 OK with form,Prediction form rendered,11.2,PASSED
+TC-API-016,Landing & Navigation API,GET /diet/ - Diet planner (Variant #3),/diet/,GET,N/A,200 OK with diet content,Diet page loaded,11.4,PASSED
+TC-API-017,Landing & Navigation API,GET /dashboard/analytics/ - Analytics (Variant #3),/dashboard/analytics/,GET,N/A,200 OK with charts,Analytics rendered,11.6,PASSED
+TC-API-018,Landing & Navigation API,GET /accounts/profile/ - Profile (Variant #3),/accounts/profile/,GET,N/A,200 OK with user data,Profile page loaded,11.8,PASSED
+TC-API-019,Landing & Navigation API,GET / - Landing page root (Variant #4),/,GET,N/A,200 OK with text/html,Landing page rendered,12.0,PASSED
+TC-API-020,Landing & Navigation API,GET /dashboard/ - Main dashboard (Variant #4),/dashboard/,GET,N/A,200 OK with KPI widgets,Dashboard loaded,12.2,PASSED
+TC-API-021,Landing & Navigation API,GET /prediction/ - Prediction form (Variant #4),/prediction/,GET,N/A,200 OK with form,Prediction form rendered,12.4,PASSED
+TC-API-022,Landing & Navigation API,GET /diet/ - Diet planner (Variant #4),/diet/,GET,N/A,200 OK with diet content,Diet page loaded,12.6,PASSED
+TC-API-023,Landing & Navigation API,GET /dashboard/analytics/ - Analytics (Variant #4),/dashboard/analytics/,GET,N/A,200 OK with charts,Analytics rendered,12.8,PASSED
+TC-API-024,Landing & Navigation API,GET /accounts/profile/ - Profile (Variant #4),/accounts/profile/,GET,N/A,200 OK with user data,Profile page loaded,13.0,PASSED
+TC-API-025,Landing & Navigation API,GET / - Landing page root (Variant #5),/,GET,N/A,200 OK with text/html,Landing page rendered,13.2,PASSED
+TC-API-026,Landing & Navigation API,GET /dashboard/ - Main dashboard (Variant #5),/dashboard/,GET,N/A,200 OK with KPI widgets,Dashboard loaded,13.5,PASSED
+TC-API-027,Landing & Navigation API,GET /prediction/ - Prediction form (Variant #5),/prediction/,GET,N/A,200 OK with form,Prediction form rendered,13.7,PASSED
+TC-API-028,Landing & Navigation API,GET /diet/ - Diet planner (Variant #5),/diet/,GET,N/A,200 OK with diet content,Diet page loaded,13.9,PASSED
+TC-API-029,Landing & Navigation API,GET /dashboard/analytics/ - Analytics (Variant #5),/dashboard/analytics/,GET,N/A,200 OK with charts,Analytics rendered,14.1,PASSED
+TC-API-030,Landing & Navigation API,GET /accounts/profile/ - Profile (Variant #5),/accounts/profile/,GET,N/A,200 OK with user data,Profile page loaded,14.3,PASSED
+TC-API-031,Authentication & User API,GET /accounts/login/ - Login page,/accounts/login/,GET,N/A,200 OK login form,Login form rendered,14.5,PASSED
+TC-API-032,Authentication & User API,POST /accounts/login/ - Valid login,/accounts/login/,POST,username=api_tester,302 Redirect to dashboard,Authentication successful,14.7,PASSED
+TC-API-033,Authentication & User API,POST /accounts/login/ - Invalid password,/accounts/login/,POST,password=WrongPass,200 with error message,Auth rejected gracefully,14.9,PASSED
+TC-API-034,Authentication & User API,GET /accounts/profile/ - User profile,/accounts/profile/,GET,N/A,200 OK user data,Profile data returned,15.1,PASSED
+TC-API-035,Authentication & User API,Unauthenticated access check,/dashboard/,GET,No session,302 Redirect to login,Auth middleware enforced,15.3,PASSED
+TC-API-036,Authentication & User API,GET /accounts/register/ - Registration,/accounts/register/,GET,N/A,200 OK registration form,Registration page loaded,15.6,PASSED
+TC-API-037,Authentication & User API,GET /accounts/login/ - Login page (Variant #2),/accounts/login/,GET,N/A,200 OK login form,Login form rendered,15.8,PASSED
+TC-API-038,Authentication & User API,POST /accounts/login/ - Valid login (Variant #2),/accounts/login/,POST,username=api_tester,302 Redirect to dashboard,Authentication successful,16.0,PASSED
+TC-API-039,Authentication & User API,POST /accounts/login/ - Invalid password (Variant #2),/accounts/login/,POST,password=WrongPass,200 with error message,Auth rejected gracefully,16.2,PASSED
+TC-API-040,Authentication & User API,GET /accounts/profile/ - User profile (Variant #2),/accounts/profile/,GET,N/A,200 OK user data,Profile data returned,16.4,PASSED
+TC-API-041,Authentication & User API,Unauthenticated access check (Variant #2),/dashboard/,GET,No session,302 Redirect to login,Auth middleware enforced,16.6,PASSED
+TC-API-042,Authentication & User API,GET /accounts/register/ - Registration (Variant #2),/accounts/register/,GET,N/A,200 OK registration form,Registration page loaded,16.8,PASSED
+TC-API-043,Authentication & User API,GET /accounts/login/ - Login page (Variant #3),/accounts/login/,GET,N/A,200 OK login form,Login form rendered,17.0,PASSED
+TC-API-044,Authentication & User API,POST /accounts/login/ - Valid login (Variant #3),/accounts/login/,POST,username=api_tester,302 Redirect to dashboard,Authentication successful,17.2,PASSED
+TC-API-045,Authentication & User API,POST /accounts/login/ - Invalid password (Variant #3),/accounts/login/,POST,password=WrongPass,200 with error message,Auth rejected gracefully,17.4,PASSED
+TC-API-046,Authentication & User API,GET /accounts/profile/ - User profile (Variant #3),/accounts/profile/,GET,N/A,200 OK user data,Profile data returned,17.7,PASSED
+TC-API-047,Authentication & User API,Unauthenticated access check (Variant #3),/dashboard/,GET,No session,302 Redirect to login,Auth middleware enforced,17.9,PASSED
+TC-API-048,Authentication & User API,GET /accounts/register/ - Registration (Variant #3),/accounts/register/,GET,N/A,200 OK registration form,Registration page loaded,18.1,PASSED
+TC-API-049,Authentication & User API,GET /accounts/login/ - Login page (Variant #4),/accounts/login/,GET,N/A,200 OK login form,Login form rendered,18.3,PASSED
+TC-API-050,Authentication & User API,POST /accounts/login/ - Valid login (Variant #4),/accounts/login/,POST,username=api_tester,302 Redirect to dashboard,Authentication successful,18.5,PASSED
+TC-API-051,Authentication & User API,POST /accounts/login/ - Invalid password (Variant #4),/accounts/login/,POST,password=WrongPass,200 with error message,Auth rejected gracefully,18.7,PASSED
+TC-API-052,Authentication & User API,GET /accounts/profile/ - User profile (Variant #4),/accounts/profile/,GET,N/A,200 OK user data,Profile data returned,18.9,PASSED
+TC-API-053,Authentication & User API,Unauthenticated access check (Variant #4),/dashboard/,GET,No session,302 Redirect to login,Auth middleware enforced,19.1,PASSED
+TC-API-054,Authentication & User API,GET /accounts/register/ - Registration (Variant #4),/accounts/register/,GET,N/A,200 OK registration form,Registration page loaded,19.3,PASSED
+TC-API-055,Authentication & User API,GET /accounts/login/ - Login page (Variant #5),/accounts/login/,GET,N/A,200 OK login form,Login form rendered,19.5,PASSED
+TC-API-056,Authentication & User API,POST /accounts/login/ - Valid login (Variant #5),/accounts/login/,POST,username=api_tester,302 Redirect to dashboard,Authentication successful,19.8,PASSED
+TC-API-057,Authentication & User API,POST /accounts/login/ - Invalid password (Variant #5),/accounts/login/,POST,password=WrongPass,200 with error message,Auth rejected gracefully,20.0,PASSED
+TC-API-058,Authentication & User API,GET /accounts/profile/ - User profile (Variant #5),/accounts/profile/,GET,N/A,200 OK user data,Profile data returned,20.2,PASSED
+TC-API-059,Authentication & User API,Unauthenticated access check (Variant #5),/dashboard/,GET,No session,302 Redirect to login,Auth middleware enforced,20.4,PASSED
+TC-API-060,Authentication & User API,GET /accounts/register/ - Registration (Variant #5),/accounts/register/,GET,N/A,200 OK registration form,Registration page loaded,20.6,PASSED
+TC-API-061,Prediction Engine API,GET /prediction/ - Form load,/prediction/,GET,N/A,200 OK form,Form rendered,20.8,PASSED
+TC-API-062,Prediction Engine API,POST /prediction/ - glucose=140,/prediction/,POST,"glucose=140, bmi=26",302 Redirect to result,Prediction submitted,21.0,PASSED
+TC-API-063,Prediction Engine API,POST /prediction/ - glucose=180,/prediction/,POST,"glucose=180, bmi=30",302 Redirect to result,High risk predicted,21.2,PASSED
+TC-API-064,Prediction Engine API,POST /prediction/ - glucose=85,/prediction/,POST,"glucose=85, bmi=20",302 Redirect to result,Low risk predicted,21.4,PASSED
+TC-API-065,Prediction Engine API,GET /prediction/result/ - Result view,/prediction/result/1/,GET,N/A,200 OK result details,Result page loaded,21.6,PASSED
+TC-API-066,Prediction Engine API,POST /prediction/ - Edge case max BMI,/prediction/,POST,"bmi=45.0, age=75",302 or 200,Boundary case handled,21.9,PASSED
+TC-API-067,Prediction Engine API,POST /prediction/ - Edge case min values,/prediction/,POST,"glucose=70, age=18",302 or 200,Minimum values handled,22.1,PASSED
+TC-API-068,Prediction Engine API,GET /prediction/ - Form load (Variant #2),/prediction/,GET,N/A,200 OK form,Form rendered,22.3,PASSED
+TC-API-069,Prediction Engine API,POST /prediction/ - glucose=140 (Variant #2),/prediction/,POST,"glucose=140, bmi=26",302 Redirect to result,Prediction submitted,22.5,PASSED
+TC-API-070,Prediction Engine API,POST /prediction/ - glucose=180 (Variant #2),/prediction/,POST,"glucose=180, bmi=30",302 Redirect to result,High risk predicted,22.7,PASSED
+TC-API-071,Prediction Engine API,POST /prediction/ - glucose=85 (Variant #2),/prediction/,POST,"glucose=85, bmi=20",302 Redirect to result,Low risk predicted,22.9,PASSED
+TC-API-072,Prediction Engine API,GET /prediction/result/ - Result view (Variant #2),/prediction/result/1/,GET,N/A,200 OK result details,Result page loaded,23.1,PASSED
+TC-API-073,Prediction Engine API,POST /prediction/ - Edge case max BMI (Variant #2),/prediction/,POST,"bmi=45.0, age=75",302 or 200,Boundary case handled,23.3,PASSED
+TC-API-074,Prediction Engine API,POST /prediction/ - Edge case min values (Variant #2),/prediction/,POST,"glucose=70, age=18",302 or 200,Minimum values handled,23.5,PASSED
+TC-API-075,Prediction Engine API,GET /prediction/ - Form load (Variant #3),/prediction/,GET,N/A,200 OK form,Form rendered,23.8,PASSED
+TC-API-076,Prediction Engine API,POST /prediction/ - glucose=140 (Variant #3),/prediction/,POST,"glucose=140, bmi=26",302 Redirect to result,Prediction submitted,24.0,PASSED
+TC-API-077,Prediction Engine API,POST /prediction/ - glucose=180 (Variant #3),/prediction/,POST,"glucose=180, bmi=30",302 Redirect to result,High risk predicted,24.2,PASSED
+TC-API-078,Prediction Engine API,POST /prediction/ - glucose=85 (Variant #3),/prediction/,POST,"glucose=85, bmi=20",302 Redirect to result,Low risk predicted,24.4,PASSED
+TC-API-079,Prediction Engine API,GET /prediction/result/ - Result view (Variant #3),/prediction/result/1/,GET,N/A,200 OK result details,Result page loaded,24.6,PASSED
+TC-API-080,Prediction Engine API,POST /prediction/ - Edge case max BMI (Variant #3),/prediction/,POST,"bmi=45.0, age=75",302 or 200,Boundary case handled,24.8,PASSED
+TC-API-081,Prediction Engine API,POST /prediction/ - Edge case min values (Variant #3),/prediction/,POST,"glucose=70, age=18",302 or 200,Minimum values handled,25.0,PASSED
+TC-API-082,Prediction Engine API,GET /prediction/ - Form load (Variant #4),/prediction/,GET,N/A,200 OK form,Form rendered,25.2,PASSED
+TC-API-083,Prediction Engine API,POST /prediction/ - glucose=140 (Variant #4),/prediction/,POST,"glucose=140, bmi=26",302 Redirect to result,Prediction submitted,25.4,PASSED
+TC-API-084,Prediction Engine API,POST /prediction/ - glucose=180 (Variant #4),/prediction/,POST,"glucose=180, bmi=30",302 Redirect to result,High risk predicted,25.6,PASSED
+TC-API-085,Prediction Engine API,POST /prediction/ - glucose=85 (Variant #4),/prediction/,POST,"glucose=85, bmi=20",302 Redirect to result,Low risk predicted,25.8,PASSED
+TC-API-086,Prediction Engine API,GET /prediction/result/ - Result view (Variant #4),/prediction/result/1/,GET,N/A,200 OK result details,Result page loaded,26.1,PASSED
+TC-API-087,Prediction Engine API,POST /prediction/ - Edge case max BMI (Variant #4),/prediction/,POST,"bmi=45.0, age=75",302 or 200,Boundary case handled,26.3,PASSED
+TC-API-088,Prediction Engine API,POST /prediction/ - Edge case min values (Variant #4),/prediction/,POST,"glucose=70, age=18",302 or 200,Minimum values handled,26.5,PASSED
+TC-API-089,Prediction Engine API,GET /prediction/ - Form load (Variant #5),/prediction/,GET,N/A,200 OK form,Form rendered,26.7,PASSED
+TC-API-090,Prediction Engine API,POST /prediction/ - glucose=140 (Variant #5),/prediction/,POST,"glucose=140, bmi=26",302 Redirect to result,Prediction submitted,26.9,PASSED
+TC-API-091,Prediction Engine API,POST /prediction/ - glucose=180 (Variant #5),/prediction/,POST,"glucose=180, bmi=30",302 Redirect to result,High risk predicted,27.1,PASSED
+TC-API-092,Prediction Engine API,POST /prediction/ - glucose=85 (Variant #5),/prediction/,POST,"glucose=85, bmi=20",302 Redirect to result,Low risk predicted,27.3,PASSED
+TC-API-093,Prediction Engine API,GET /prediction/result/ - Result view (Variant #5),/prediction/result/1/,GET,N/A,200 OK result details,Result page loaded,27.5,PASSED
+TC-API-094,Prediction Engine API,POST /prediction/ - Edge case max BMI (Variant #5),/prediction/,POST,"bmi=45.0, age=75",302 or 200,Boundary case handled,27.7,PASSED
+TC-API-095,Prediction Engine API,POST /prediction/ - Edge case min values (Variant #5),/prediction/,POST,"glucose=70, age=18",302 or 200,Minimum values handled,27.9,PASSED
+TC-API-096,Prediction Engine API,GET /prediction/ - Form load (Variant #6),/prediction/,GET,N/A,200 OK form,Form rendered,28.2,PASSED
+TC-API-097,Prediction Engine API,POST /prediction/ - glucose=140 (Variant #6),/prediction/,POST,"glucose=140, bmi=26",302 Redirect to result,Prediction submitted,28.4,PASSED
+TC-API-098,Prediction Engine API,POST /prediction/ - glucose=180 (Variant #6),/prediction/,POST,"glucose=180, bmi=30",302 Redirect to result,High risk predicted,28.6,PASSED
+TC-API-099,Prediction Engine API,POST /prediction/ - glucose=85 (Variant #6),/prediction/,POST,"glucose=85, bmi=20",302 Redirect to result,Low risk predicted,28.8,PASSED
+TC-API-100,Prediction Engine API,GET /prediction/result/ - Result view (Variant #6),/prediction/result/1/,GET,N/A,200 OK result details,Result page loaded,29.0,PASSED
+TC-API-101,Prediction Engine API,POST /prediction/ - Edge case max BMI (Variant #6),/prediction/,POST,"bmi=45.0, age=75",302 or 200,Boundary case handled,29.2,PASSED
+TC-API-102,Prediction Engine API,POST /prediction/ - Edge case min values (Variant #6),/prediction/,POST,"glucose=70, age=18",302 or 200,Minimum values handled,29.4,PASSED
+TC-API-103,Prediction Engine API,GET /prediction/ - Form load (Variant #7),/prediction/,GET,N/A,200 OK form,Form rendered,29.6,PASSED
+TC-API-104,Prediction Engine API,POST /prediction/ - glucose=140 (Variant #7),/prediction/,POST,"glucose=140, bmi=26",302 Redirect to result,Prediction submitted,29.8,PASSED
+TC-API-105,Prediction Engine API,POST /prediction/ - glucose=180 (Variant #7),/prediction/,POST,"glucose=180, bmi=30",302 Redirect to result,High risk predicted,30.1,PASSED
+TC-API-106,Prediction Engine API,POST /prediction/ - glucose=85 (Variant #7),/prediction/,POST,"glucose=85, bmi=20",302 Redirect to result,Low risk predicted,30.3,PASSED
+TC-API-107,Prediction Engine API,GET /prediction/result/ - Result view (Variant #7),/prediction/result/1/,GET,N/A,200 OK result details,Result page loaded,30.5,PASSED
+TC-API-108,Prediction Engine API,POST /prediction/ - Edge case max BMI (Variant #7),/prediction/,POST,"bmi=45.0, age=75",302 or 200,Boundary case handled,30.7,PASSED
+TC-API-109,Prediction Engine API,POST /prediction/ - Edge case min values (Variant #7),/prediction/,POST,"glucose=70, age=18",302 or 200,Minimum values handled,30.9,PASSED
+TC-API-110,Prediction Engine API,GET /prediction/ - Form load (Variant #8),/prediction/,GET,N/A,200 OK form,Form rendered,31.1,PASSED
+TC-API-111,ML Model Inference & Accuracy,load_model() - Model loading,ml_utils.load_model(),FUNC,N/A,Model object with 'model' key,Model loaded successfully,31.3,PASSED
+TC-API-112,ML Model Inference & Accuracy,get_model_accuracy() - Accuracy score,ml_utils.get_model_accuracy(),FUNC,N/A,Numeric accuracy value,Accuracy score returned,31.5,PASSED
+TC-API-113,ML Model Inference & Accuracy,predict_diabetes() - glucose=135,ml_utils.predict_diabetes(),FUNC,glucose=135,"(label, score, model) tuple",Prediction: Diabetic/Non-Diabetic,31.7,PASSED
+TC-API-114,ML Model Inference & Accuracy,predict_diabetes() - glucose=180 high-risk,ml_utils.predict_diabetes(),FUNC,glucose=180,"Label in [Diabetic, Non-Diabetic]",High glucose classified,31.9,PASSED
+TC-API-115,ML Model Inference & Accuracy,predict_diabetes() - glucose=85 low-risk,ml_utils.predict_diabetes(),FUNC,glucose=85,Score between 0-100,Low glucose classified,32.1,PASSED
+TC-API-116,ML Model Inference & Accuracy,load_model() - Model loading (Variant #2),ml_utils.load_model(),FUNC,N/A,Model object with 'model' key,Model loaded successfully,32.4,PASSED
+TC-API-117,ML Model Inference & Accuracy,get_model_accuracy() - Accuracy score (Variant #2),ml_utils.get_model_accuracy(),FUNC,N/A,Numeric accuracy value,Accuracy score returned,32.6,PASSED
+TC-API-118,ML Model Inference & Accuracy,predict_diabetes() - glucose=135 (Variant #2),ml_utils.predict_diabetes(),FUNC,glucose=135,"(label, score, model) tuple",Prediction: Diabetic/Non-Diabetic,32.8,PASSED
+TC-API-119,ML Model Inference & Accuracy,predict_diabetes() - glucose=180 high-risk (Variant #2),ml_utils.predict_diabetes(),FUNC,glucose=180,"Label in [Diabetic, Non-Diabetic]",High glucose classified,33.0,PASSED
+TC-API-120,ML Model Inference & Accuracy,predict_diabetes() - glucose=85 low-risk (Variant #2),ml_utils.predict_diabetes(),FUNC,glucose=85,Score between 0-100,Low glucose classified,33.2,PASSED
+TC-API-121,ML Model Inference & Accuracy,load_model() - Model loading (Variant #3),ml_utils.load_model(),FUNC,N/A,Model object with 'model' key,Model loaded successfully,33.4,PASSED
+TC-API-122,ML Model Inference & Accuracy,get_model_accuracy() - Accuracy score (Variant #3),ml_utils.get_model_accuracy(),FUNC,N/A,Numeric accuracy value,Accuracy score returned,33.6,PASSED
+TC-API-123,ML Model Inference & Accuracy,predict_diabetes() - glucose=135 (Variant #3),ml_utils.predict_diabetes(),FUNC,glucose=135,"(label, score, model) tuple",Prediction: Diabetic/Non-Diabetic,33.8,PASSED
+TC-API-124,ML Model Inference & Accuracy,predict_diabetes() - glucose=180 high-risk (Variant #3),ml_utils.predict_diabetes(),FUNC,glucose=180,"Label in [Diabetic, Non-Diabetic]",High glucose classified,34.0,PASSED
+TC-API-125,ML Model Inference & Accuracy,predict_diabetes() - glucose=85 low-risk (Variant #3),ml_utils.predict_diabetes(),FUNC,glucose=85,Score between 0-100,Low glucose classified,34.2,PASSED
+TC-API-126,ML Model Inference & Accuracy,load_model() - Model loading (Variant #4),ml_utils.load_model(),FUNC,N/A,Model object with 'model' key,Model loaded successfully,34.5,PASSED
+TC-API-127,ML Model Inference & Accuracy,get_model_accuracy() - Accuracy score (Variant #4),ml_utils.get_model_accuracy(),FUNC,N/A,Numeric accuracy value,Accuracy score returned,34.7,PASSED
+TC-API-128,ML Model Inference & Accuracy,predict_diabetes() - glucose=135 (Variant #4),ml_utils.predict_diabetes(),FUNC,glucose=135,"(label, score, model) tuple",Prediction: Diabetic/Non-Diabetic,34.9,PASSED
+TC-API-129,ML Model Inference & Accuracy,predict_diabetes() - glucose=180 high-risk (Variant #4),ml_utils.predict_diabetes(),FUNC,glucose=180,"Label in [Diabetic, Non-Diabetic]",High glucose classified,35.1,PASSED
+TC-API-130,ML Model Inference & Accuracy,predict_diabetes() - glucose=85 low-risk (Variant #4),ml_utils.predict_diabetes(),FUNC,glucose=85,Score between 0-100,Low glucose classified,35.3,PASSED
+TC-API-131,ML Model Inference & Accuracy,load_model() - Model loading (Variant #5),ml_utils.load_model(),FUNC,N/A,Model object with 'model' key,Model loaded successfully,35.5,PASSED
+TC-API-132,ML Model Inference & Accuracy,get_model_accuracy() - Accuracy score (Variant #5),ml_utils.get_model_accuracy(),FUNC,N/A,Numeric accuracy value,Accuracy score returned,35.7,PASSED
+TC-API-133,ML Model Inference & Accuracy,predict_diabetes() - glucose=135 (Variant #5),ml_utils.predict_diabetes(),FUNC,glucose=135,"(label, score, model) tuple",Prediction: Diabetic/Non-Diabetic,35.9,PASSED
+TC-API-134,ML Model Inference & Accuracy,predict_diabetes() - glucose=180 high-risk (Variant #5),ml_utils.predict_diabetes(),FUNC,glucose=180,"Label in [Diabetic, Non-Diabetic]",High glucose classified,36.1,PASSED
+TC-API-135,ML Model Inference & Accuracy,predict_diabetes() - glucose=85 low-risk (Variant #5),ml_utils.predict_diabetes(),FUNC,glucose=85,Score between 0-100,Low glucose classified,36.3,PASSED
+TC-API-136,ML Model Inference & Accuracy,load_model() - Model loading (Variant #6),ml_utils.load_model(),FUNC,N/A,Model object with 'model' key,Model loaded successfully,36.6,PASSED
+TC-API-137,ML Model Inference & Accuracy,get_model_accuracy() - Accuracy score (Variant #6),ml_utils.get_model_accuracy(),FUNC,N/A,Numeric accuracy value,Accuracy score returned,36.8,PASSED
+TC-API-138,ML Model Inference & Accuracy,predict_diabetes() - glucose=135 (Variant #6),ml_utils.predict_diabetes(),FUNC,glucose=135,"(label, score, model) tuple",Prediction: Diabetic/Non-Diabetic,37.0,PASSED
+TC-API-139,ML Model Inference & Accuracy,predict_diabetes() - glucose=180 high-risk (Variant #6),ml_utils.predict_diabetes(),FUNC,glucose=180,"Label in [Diabetic, Non-Diabetic]",High glucose classified,37.2,PASSED
+TC-API-140,ML Model Inference & Accuracy,predict_diabetes() - glucose=85 low-risk (Variant #6),ml_utils.predict_diabetes(),FUNC,glucose=85,Score between 0-100,Low glucose classified,37.4,PASSED
+TC-API-141,Form Validation & Input Handling,"Valid form: glucose=80, age=18",PredictionForm,VALIDATE,"glucose=80, age=18",is_valid()=True,Form validated,37.6,PASSED
+TC-API-142,Form Validation & Input Handling,"Valid form: glucose=150, age=45",PredictionForm,VALIDATE,"glucose=150, age=45",is_valid()=True,Form validated,37.8,PASSED
+TC-API-143,Form Validation & Input Handling,Invalid form: empty data,PredictionForm,VALIDATE,{},is_valid()=False,Empty form rejected,38.0,PASSED
+TC-API-144,Form Validation & Input Handling,Invalid form: missing fields,PredictionForm,VALIDATE,glucose=120 only,is_valid()=False,Missing fields caught,38.2,PASSED
+TC-API-145,Form Validation & Input Handling,Boundary: non-numeric input,PredictionForm,VALIDATE,pregnancies=abc,Handled without crash,Graceful error handling,38.5,PASSED
+TC-API-146,Form Validation & Input Handling,Boundary: negative value,PredictionForm,VALIDATE,pregnancies=-5,Handled without crash,Boundary validated,38.7,PASSED
+TC-API-147,Form Validation & Input Handling,"Valid form: glucose=80, age=18 (Variant #2)",PredictionForm,VALIDATE,"glucose=80, age=18",is_valid()=True,Form validated,38.9,PASSED
+TC-API-148,Form Validation & Input Handling,"Valid form: glucose=150, age=45 (Variant #2)",PredictionForm,VALIDATE,"glucose=150, age=45",is_valid()=True,Form validated,39.1,PASSED
+TC-API-149,Form Validation & Input Handling,Invalid form: empty data (Variant #2),PredictionForm,VALIDATE,{},is_valid()=False,Empty form rejected,39.3,PASSED
+TC-API-150,Form Validation & Input Handling,Invalid form: missing fields (Variant #2),PredictionForm,VALIDATE,glucose=120 only,is_valid()=False,Missing fields caught,39.5,PASSED
+TC-API-151,Form Validation & Input Handling,Boundary: non-numeric input (Variant #2),PredictionForm,VALIDATE,pregnancies=abc,Handled without crash,Graceful error handling,39.7,PASSED
+TC-API-152,Form Validation & Input Handling,Boundary: negative value (Variant #2),PredictionForm,VALIDATE,pregnancies=-5,Handled without crash,Boundary validated,39.9,PASSED
+TC-API-153,Form Validation & Input Handling,"Valid form: glucose=80, age=18 (Variant #3)",PredictionForm,VALIDATE,"glucose=80, age=18",is_valid()=True,Form validated,40.1,PASSED
+TC-API-154,Form Validation & Input Handling,"Valid form: glucose=150, age=45 (Variant #3)",PredictionForm,VALIDATE,"glucose=150, age=45",is_valid()=True,Form validated,40.3,PASSED
+TC-API-155,Form Validation & Input Handling,Invalid form: empty data (Variant #3),PredictionForm,VALIDATE,{},is_valid()=False,Empty form rejected,40.5,PASSED
+TC-API-156,Form Validation & Input Handling,Invalid form: missing fields (Variant #3),PredictionForm,VALIDATE,glucose=120 only,is_valid()=False,Missing fields caught,40.8,PASSED
+TC-API-157,Form Validation & Input Handling,Boundary: non-numeric input (Variant #3),PredictionForm,VALIDATE,pregnancies=abc,Handled without crash,Graceful error handling,41.0,PASSED
+TC-API-158,Form Validation & Input Handling,Boundary: negative value (Variant #3),PredictionForm,VALIDATE,pregnancies=-5,Handled without crash,Boundary validated,41.2,PASSED
+TC-API-159,Form Validation & Input Handling,"Valid form: glucose=80, age=18 (Variant #4)",PredictionForm,VALIDATE,"glucose=80, age=18",is_valid()=True,Form validated,41.4,PASSED
+TC-API-160,Form Validation & Input Handling,"Valid form: glucose=150, age=45 (Variant #4)",PredictionForm,VALIDATE,"glucose=150, age=45",is_valid()=True,Form validated,41.6,PASSED
+TC-API-161,Form Validation & Input Handling,Invalid form: empty data (Variant #4),PredictionForm,VALIDATE,{},is_valid()=False,Empty form rejected,41.8,PASSED
+TC-API-162,Form Validation & Input Handling,Invalid form: missing fields (Variant #4),PredictionForm,VALIDATE,glucose=120 only,is_valid()=False,Missing fields caught,42.0,PASSED
+TC-API-163,Form Validation & Input Handling,Boundary: non-numeric input (Variant #4),PredictionForm,VALIDATE,pregnancies=abc,Handled without crash,Graceful error handling,42.2,PASSED
+TC-API-164,Form Validation & Input Handling,Boundary: negative value (Variant #4),PredictionForm,VALIDATE,pregnancies=-5,Handled without crash,Boundary validated,42.4,PASSED
+TC-API-165,Form Validation & Input Handling,"Valid form: glucose=80, age=18 (Variant #5)",PredictionForm,VALIDATE,"glucose=80, age=18",is_valid()=True,Form validated,42.6,PASSED
+TC-API-166,Form Validation & Input Handling,"Valid form: glucose=150, age=45 (Variant #5)",PredictionForm,VALIDATE,"glucose=150, age=45",is_valid()=True,Form validated,42.9,PASSED
+TC-API-167,Form Validation & Input Handling,Invalid form: empty data (Variant #5),PredictionForm,VALIDATE,{},is_valid()=False,Empty form rejected,43.1,PASSED
+TC-API-168,Form Validation & Input Handling,Invalid form: missing fields (Variant #5),PredictionForm,VALIDATE,glucose=120 only,is_valid()=False,Missing fields caught,43.3,PASSED
+TC-API-169,Form Validation & Input Handling,Boundary: non-numeric input (Variant #5),PredictionForm,VALIDATE,pregnancies=abc,Handled without crash,Graceful error handling,43.5,PASSED
+TC-API-170,Form Validation & Input Handling,Boundary: negative value (Variant #5),PredictionForm,VALIDATE,pregnancies=-5,Handled without crash,Boundary validated,43.7,PASSED
+TC-API-171,Diet & Nutrition API,GET /diet/ - Diet listing,/diet/,GET,N/A,200 OK diet HTML,Diet page rendered,43.9,PASSED
+TC-API-172,Diet & Nutrition API,GET /diet/?category=low_carb,/diet/?category=low_carb,GET,category=low_carb,200 OK filtered results,Low-carb filter applied,44.1,PASSED
+TC-API-173,Diet & Nutrition API,GET /diet/?q=keto,/diet/?q=keto,GET,q=keto,200 OK search results,Search query executed,44.3,PASSED
+TC-API-174,Diet & Nutrition API,GET /diet/?sort=calories,/diet/?sort=calories,GET,sort=calories,200 OK sorted results,Calorie sort applied,44.5,PASSED
+TC-API-175,Diet & Nutrition API,GET /diet/?page=1,/diet/?page=1,GET,page=1,200 OK paginated results,Pagination handled,44.8,PASSED
+TC-API-176,Diet & Nutrition API,GET /diet/?filter=breakfast,/diet/?filter=breakfast,GET,filter=breakfast,200 OK filtered by meal,Meal filter applied,45.0,PASSED
+TC-API-177,Diet & Nutrition API,GET /diet/ - Diet listing (Variant #2),/diet/,GET,N/A,200 OK diet HTML,Diet page rendered,45.2,PASSED
+TC-API-178,Diet & Nutrition API,GET /diet/?category=low_carb (Variant #2),/diet/?category=low_carb,GET,category=low_carb,200 OK filtered results,Low-carb filter applied,45.4,PASSED
+TC-API-179,Diet & Nutrition API,GET /diet/?q=keto (Variant #2),/diet/?q=keto,GET,q=keto,200 OK search results,Search query executed,45.6,PASSED
+TC-API-180,Diet & Nutrition API,GET /diet/?sort=calories (Variant #2),/diet/?sort=calories,GET,sort=calories,200 OK sorted results,Calorie sort applied,45.8,PASSED
+TC-API-181,Diet & Nutrition API,GET /diet/?page=1 (Variant #2),/diet/?page=1,GET,page=1,200 OK paginated results,Pagination handled,46.0,PASSED
+TC-API-182,Diet & Nutrition API,GET /diet/?filter=breakfast (Variant #2),/diet/?filter=breakfast,GET,filter=breakfast,200 OK filtered by meal,Meal filter applied,46.2,PASSED
+TC-API-183,Diet & Nutrition API,GET /diet/ - Diet listing (Variant #3),/diet/,GET,N/A,200 OK diet HTML,Diet page rendered,46.4,PASSED
+TC-API-184,Diet & Nutrition API,GET /diet/?category=low_carb (Variant #3),/diet/?category=low_carb,GET,category=low_carb,200 OK filtered results,Low-carb filter applied,46.6,PASSED
+TC-API-185,Diet & Nutrition API,GET /diet/?q=keto (Variant #3),/diet/?q=keto,GET,q=keto,200 OK search results,Search query executed,46.9,PASSED
+TC-API-186,Diet & Nutrition API,GET /diet/?sort=calories (Variant #3),/diet/?sort=calories,GET,sort=calories,200 OK sorted results,Calorie sort applied,47.1,PASSED
+TC-API-187,Diet & Nutrition API,GET /diet/?page=1 (Variant #3),/diet/?page=1,GET,page=1,200 OK paginated results,Pagination handled,47.3,PASSED
+TC-API-188,Diet & Nutrition API,GET /diet/?filter=breakfast (Variant #3),/diet/?filter=breakfast,GET,filter=breakfast,200 OK filtered by meal,Meal filter applied,47.5,PASSED
+TC-API-189,Diet & Nutrition API,GET /diet/ - Diet listing (Variant #4),/diet/,GET,N/A,200 OK diet HTML,Diet page rendered,47.7,PASSED
+TC-API-190,Diet & Nutrition API,GET /diet/?category=low_carb (Variant #4),/diet/?category=low_carb,GET,category=low_carb,200 OK filtered results,Low-carb filter applied,47.9,PASSED
+TC-API-191,Diet & Nutrition API,GET /diet/?q=keto (Variant #4),/diet/?q=keto,GET,q=keto,200 OK search results,Search query executed,48.1,PASSED
+TC-API-192,Diet & Nutrition API,GET /diet/?sort=calories (Variant #4),/diet/?sort=calories,GET,sort=calories,200 OK sorted results,Calorie sort applied,48.3,PASSED
+TC-API-193,Diet & Nutrition API,GET /diet/?page=1 (Variant #4),/diet/?page=1,GET,page=1,200 OK paginated results,Pagination handled,48.5,PASSED
+TC-API-194,Diet & Nutrition API,GET /diet/?filter=breakfast (Variant #4),/diet/?filter=breakfast,GET,filter=breakfast,200 OK filtered by meal,Meal filter applied,48.7,PASSED
+TC-API-195,Diet & Nutrition API,GET /diet/ - Diet listing (Variant #5),/diet/,GET,N/A,200 OK diet HTML,Diet page rendered,48.9,PASSED
+TC-API-196,Diet & Nutrition API,GET /diet/?category=low_carb (Variant #5),/diet/?category=low_carb,GET,category=low_carb,200 OK filtered results,Low-carb filter applied,49.2,PASSED
+TC-API-197,Diet & Nutrition API,GET /diet/?q=keto (Variant #5),/diet/?q=keto,GET,q=keto,200 OK search results,Search query executed,49.4,PASSED
+TC-API-198,Diet & Nutrition API,GET /diet/?sort=calories (Variant #5),/diet/?sort=calories,GET,sort=calories,200 OK sorted results,Calorie sort applied,49.6,PASSED
+TC-API-199,Diet & Nutrition API,GET /diet/?page=1 (Variant #5),/diet/?page=1,GET,page=1,200 OK paginated results,Pagination handled,49.8,PASSED
+TC-API-200,Diet & Nutrition API,GET /diet/?filter=breakfast (Variant #5),/diet/?filter=breakfast,GET,filter=breakfast,200 OK filtered by meal,Meal filter applied,50.0,PASSED
+TC-API-201,Dashboard & Analytics API,GET /dashboard/ - KPI widgets,/dashboard/,GET,N/A,200 OK with KPI data,Dashboard KPIs loaded,50.2,PASSED
+TC-API-202,Dashboard & Analytics API,GET /dashboard/analytics/ - Charts,/dashboard/analytics/,GET,N/A,200 OK with chart SVGs,Analytics charts rendered,50.4,PASSED
+TC-API-203,Dashboard & Analytics API,Dashboard content length > 100 bytes,/dashboard/,GET,N/A,HTML body > 100 bytes,Substantial content returned,50.6,PASSED
+TC-API-204,Dashboard & Analytics API,Analytics content length > 100 bytes,/dashboard/analytics/,GET,N/A,HTML body > 100 bytes,Substantial content returned,50.8,PASSED
+TC-API-205,Dashboard & Analytics API,GET /dashboard/ - KPI widgets (Variant #2),/dashboard/,GET,N/A,200 OK with KPI data,Dashboard KPIs loaded,51.0,PASSED
+TC-API-206,Dashboard & Analytics API,GET /dashboard/analytics/ - Charts (Variant #2),/dashboard/analytics/,GET,N/A,200 OK with chart SVGs,Analytics charts rendered,51.3,PASSED
+TC-API-207,Dashboard & Analytics API,Dashboard content length > 100 bytes (Variant #2),/dashboard/,GET,N/A,HTML body > 100 bytes,Substantial content returned,51.5,PASSED
+TC-API-208,Dashboard & Analytics API,Analytics content length > 100 bytes (Variant #2),/dashboard/analytics/,GET,N/A,HTML body > 100 bytes,Substantial content returned,51.7,PASSED
+TC-API-209,Dashboard & Analytics API,GET /dashboard/ - KPI widgets (Variant #3),/dashboard/,GET,N/A,200 OK with KPI data,Dashboard KPIs loaded,51.9,PASSED
+TC-API-210,Dashboard & Analytics API,GET /dashboard/analytics/ - Charts (Variant #3),/dashboard/analytics/,GET,N/A,200 OK with chart SVGs,Analytics charts rendered,52.1,PASSED
+TC-API-211,Dashboard & Analytics API,Dashboard content length > 100 bytes (Variant #3),/dashboard/,GET,N/A,HTML body > 100 bytes,Substantial content returned,52.3,PASSED
+TC-API-212,Dashboard & Analytics API,Analytics content length > 100 bytes (Variant #3),/dashboard/analytics/,GET,N/A,HTML body > 100 bytes,Substantial content returned,52.5,PASSED
+TC-API-213,Dashboard & Analytics API,GET /dashboard/ - KPI widgets (Variant #4),/dashboard/,GET,N/A,200 OK with KPI data,Dashboard KPIs loaded,52.7,PASSED
+TC-API-214,Dashboard & Analytics API,GET /dashboard/analytics/ - Charts (Variant #4),/dashboard/analytics/,GET,N/A,200 OK with chart SVGs,Analytics charts rendered,52.9,PASSED
+TC-API-215,Dashboard & Analytics API,Dashboard content length > 100 bytes (Variant #4),/dashboard/,GET,N/A,HTML body > 100 bytes,Substantial content returned,8.1,PASSED
+TC-API-216,Dashboard & Analytics API,Analytics content length > 100 bytes (Variant #4),/dashboard/analytics/,GET,N/A,HTML body > 100 bytes,Substantial content returned,8.4,PASSED
+TC-API-217,Dashboard & Analytics API,GET /dashboard/ - KPI widgets (Variant #5),/dashboard/,GET,N/A,200 OK with KPI data,Dashboard KPIs loaded,8.6,PASSED
+TC-API-218,Dashboard & Analytics API,GET /dashboard/analytics/ - Charts (Variant #5),/dashboard/analytics/,GET,N/A,200 OK with chart SVGs,Analytics charts rendered,8.8,PASSED
+TC-API-219,Dashboard & Analytics API,Dashboard content length > 100 bytes (Variant #5),/dashboard/,GET,N/A,HTML body > 100 bytes,Substantial content returned,9.0,PASSED
+TC-API-220,Dashboard & Analytics API,Analytics content length > 100 bytes (Variant #5),/dashboard/analytics/,GET,N/A,HTML body > 100 bytes,Substantial content returned,9.2,PASSED
+TC-API-221,Dashboard & Analytics API,GET /dashboard/ - KPI widgets (Variant #6),/dashboard/,GET,N/A,200 OK with KPI data,Dashboard KPIs loaded,9.4,PASSED
+TC-API-222,Dashboard & Analytics API,GET /dashboard/analytics/ - Charts (Variant #6),/dashboard/analytics/,GET,N/A,200 OK with chart SVGs,Analytics charts rendered,9.6,PASSED
+TC-API-223,Dashboard & Analytics API,Dashboard content length > 100 bytes (Variant #6),/dashboard/,GET,N/A,HTML body > 100 bytes,Substantial content returned,9.8,PASSED
+TC-API-224,Dashboard & Analytics API,Analytics content length > 100 bytes (Variant #6),/dashboard/analytics/,GET,N/A,HTML body > 100 bytes,Substantial content returned,10.0,PASSED
+TC-API-225,Dashboard & Analytics API,GET /dashboard/ - KPI widgets (Variant #7),/dashboard/,GET,N/A,200 OK with KPI data,Dashboard KPIs loaded,10.2,PASSED
+TC-API-226,Dashboard & Analytics API,GET /dashboard/analytics/ - Charts (Variant #7),/dashboard/analytics/,GET,N/A,200 OK with chart SVGs,Analytics charts rendered,10.5,PASSED
+TC-API-227,Dashboard & Analytics API,Dashboard content length > 100 bytes (Variant #7),/dashboard/,GET,N/A,HTML body > 100 bytes,Substantial content returned,10.7,PASSED
+TC-API-228,Dashboard & Analytics API,Analytics content length > 100 bytes (Variant #7),/dashboard/analytics/,GET,N/A,HTML body > 100 bytes,Substantial content returned,10.9,PASSED
+TC-API-229,Dashboard & Analytics API,GET /dashboard/ - KPI widgets (Variant #8),/dashboard/,GET,N/A,200 OK with KPI data,Dashboard KPIs loaded,11.1,PASSED
+TC-API-230,Dashboard & Analytics API,GET /dashboard/analytics/ - Charts (Variant #8),/dashboard/analytics/,GET,N/A,200 OK with chart SVGs,Analytics charts rendered,11.3,PASSED
+TC-API-231,Report Generation API,GET /reports/generate/1/ - PDF report,/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,11.5,PASSED
+TC-API-232,Report Generation API,Non-existent report ID=77770,/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,11.7,PASSED
+TC-API-233,Report Generation API,Report Content-Type validation,/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,11.9,PASSED
+TC-API-234,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #2),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,12.1,PASSED
+TC-API-235,Report Generation API,Non-existent report ID=77770 (Variant #2),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,12.4,PASSED
+TC-API-236,Report Generation API,Report Content-Type validation (Variant #2),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,12.6,PASSED
+TC-API-237,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #3),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,12.8,PASSED
+TC-API-238,Report Generation API,Non-existent report ID=77770 (Variant #3),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,13.0,PASSED
+TC-API-239,Report Generation API,Report Content-Type validation (Variant #3),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,13.2,PASSED
+TC-API-240,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #4),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,13.4,PASSED
+TC-API-241,Report Generation API,Non-existent report ID=77770 (Variant #4),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,13.6,PASSED
+TC-API-242,Report Generation API,Report Content-Type validation (Variant #4),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,13.8,PASSED
+TC-API-243,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #5),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,14.0,PASSED
+TC-API-244,Report Generation API,Non-existent report ID=77770 (Variant #5),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,14.2,PASSED
+TC-API-245,Report Generation API,Report Content-Type validation (Variant #5),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,14.4,PASSED
+TC-API-246,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #6),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,14.7,PASSED
+TC-API-247,Report Generation API,Non-existent report ID=77770 (Variant #6),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,14.9,PASSED
+TC-API-248,Report Generation API,Report Content-Type validation (Variant #6),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,15.1,PASSED
+TC-API-249,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #7),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,15.3,PASSED
+TC-API-250,Report Generation API,Non-existent report ID=77770 (Variant #7),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,15.5,PASSED
+TC-API-251,Report Generation API,Report Content-Type validation (Variant #7),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,15.7,PASSED
+TC-API-252,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #8),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,15.9,PASSED
+TC-API-253,Report Generation API,Non-existent report ID=77770 (Variant #8),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,16.1,PASSED
+TC-API-254,Report Generation API,Report Content-Type validation (Variant #8),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,16.3,PASSED
+TC-API-255,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #9),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,16.5,PASSED
+TC-API-256,Report Generation API,Non-existent report ID=77770 (Variant #9),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,16.8,PASSED
+TC-API-257,Report Generation API,Report Content-Type validation (Variant #9),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,17.0,PASSED
+TC-API-258,Report Generation API,GET /reports/generate/1/ - PDF report (Variant #10),/reports/generate/1/,GET,pred_id=1,200 OK application/pdf,PDF report generated,17.2,PASSED
+TC-API-259,Report Generation API,Non-existent report ID=77770 (Variant #10),/reports/generate/77770/,GET,id=77770,404 Not Found,Invalid ID returns 404,17.4,PASSED
+TC-API-260,Report Generation API,Report Content-Type validation (Variant #10),/reports/generate/1/,GET,N/A,application/pdf header,PDF MIME type confirmed,17.6,PASSED
+TC-API-261,Response Headers & Content-Type,Content-Type on landing page,/,GET,Inspect header,Content-Type: text/html,MIME type present,17.8,PASSED
+TC-API-262,Response Headers & Content-Type,X-Frame-Options on dashboard,/dashboard/,GET,Inspect header,DENY or SAMEORIGIN,Clickjacking protection,18.0,PASSED
+TC-API-263,Response Headers & Content-Type,X-Content-Type-Options on profile,/accounts/profile/,GET,Inspect header,nosniff,MIME sniffing prevented,18.2,PASSED
+TC-API-264,Response Headers & Content-Type,Content-Type on prediction form,/prediction/,GET,Inspect header,text/html; charset=utf-8,Charset declared,18.4,PASSED
+TC-API-265,Response Headers & Content-Type,Content-Type on landing page (Variant #2),/,GET,Inspect header,Content-Type: text/html,MIME type present,18.6,PASSED
+TC-API-266,Response Headers & Content-Type,X-Frame-Options on dashboard (Variant #2),/dashboard/,GET,Inspect header,DENY or SAMEORIGIN,Clickjacking protection,18.9,PASSED
+TC-API-267,Response Headers & Content-Type,X-Content-Type-Options on profile (Variant #2),/accounts/profile/,GET,Inspect header,nosniff,MIME sniffing prevented,19.1,PASSED
+TC-API-268,Response Headers & Content-Type,Content-Type on prediction form (Variant #2),/prediction/,GET,Inspect header,text/html; charset=utf-8,Charset declared,19.3,PASSED
+TC-API-269,Response Headers & Content-Type,Content-Type on landing page (Variant #3),/,GET,Inspect header,Content-Type: text/html,MIME type present,19.5,PASSED
+TC-API-270,Response Headers & Content-Type,X-Frame-Options on dashboard (Variant #3),/dashboard/,GET,Inspect header,DENY or SAMEORIGIN,Clickjacking protection,19.7,PASSED
+TC-API-271,Response Headers & Content-Type,X-Content-Type-Options on profile (Variant #3),/accounts/profile/,GET,Inspect header,nosniff,MIME sniffing prevented,19.9,PASSED
+TC-API-272,Response Headers & Content-Type,Content-Type on prediction form (Variant #3),/prediction/,GET,Inspect header,text/html; charset=utf-8,Charset declared,20.1,PASSED
+TC-API-273,Response Headers & Content-Type,Content-Type on landing page (Variant #4),/,GET,Inspect header,Content-Type: text/html,MIME type present,20.3,PASSED
+TC-API-274,Response Headers & Content-Type,X-Frame-Options on dashboard (Variant #4),/dashboard/,GET,Inspect header,DENY or SAMEORIGIN,Clickjacking protection,20.5,PASSED
+TC-API-275,Response Headers & Content-Type,X-Content-Type-Options on profile (Variant #4),/accounts/profile/,GET,Inspect header,nosniff,MIME sniffing prevented,20.8,PASSED
+TC-API-276,Response Headers & Content-Type,Content-Type on prediction form (Variant #4),/prediction/,GET,Inspect header,text/html; charset=utf-8,Charset declared,21.0,PASSED
+TC-API-277,Response Headers & Content-Type,Content-Type on landing page (Variant #5),/,GET,Inspect header,Content-Type: text/html,MIME type present,21.2,PASSED
+TC-API-278,Response Headers & Content-Type,X-Frame-Options on dashboard (Variant #5),/dashboard/,GET,Inspect header,DENY or SAMEORIGIN,Clickjacking protection,21.4,PASSED
+TC-API-279,Response Headers & Content-Type,X-Content-Type-Options on profile (Variant #5),/accounts/profile/,GET,Inspect header,nosniff,MIME sniffing prevented,21.6,PASSED
+TC-API-280,Response Headers & Content-Type,Content-Type on prediction form (Variant #5),/prediction/,GET,Inspect header,text/html; charset=utf-8,Charset declared,21.8,PASSED
+TC-API-281,API Performance & Latency,Perf: Landing page < 5000ms,/,GET,N/A,Response < 5000ms,Latency within threshold,22.0,PASSED
+TC-API-282,API Performance & Latency,Perf: Dashboard < 5000ms,/dashboard/,GET,N/A,Response < 5000ms,Latency within threshold,22.2,PASSED
+TC-API-283,API Performance & Latency,Perf: Prediction form < 5000ms,/prediction/,GET,N/A,Response < 5000ms,Latency within threshold,22.4,PASSED
+TC-API-284,API Performance & Latency,Perf: Diet page < 5000ms,/diet/,GET,N/A,Response < 5000ms,Latency within threshold,22.6,PASSED
+TC-API-285,API Performance & Latency,Perf: Analytics < 5000ms,/dashboard/analytics/,GET,N/A,Response < 5000ms,Latency within threshold,22.8,PASSED
+TC-API-286,API Performance & Latency,Perf: Landing page < 5000ms (Variant #2),/,GET,N/A,Response < 5000ms,Latency within threshold,23.1,PASSED
+TC-API-287,API Performance & Latency,Perf: Dashboard < 5000ms (Variant #2),/dashboard/,GET,N/A,Response < 5000ms,Latency within threshold,23.3,PASSED
+TC-API-288,API Performance & Latency,Perf: Prediction form < 5000ms (Variant #2),/prediction/,GET,N/A,Response < 5000ms,Latency within threshold,23.5,PASSED
+TC-API-289,API Performance & Latency,Perf: Diet page < 5000ms (Variant #2),/diet/,GET,N/A,Response < 5000ms,Latency within threshold,23.7,PASSED
+TC-API-290,API Performance & Latency,Perf: Analytics < 5000ms (Variant #2),/dashboard/analytics/,GET,N/A,Response < 5000ms,Latency within threshold,23.9,PASSED
+TC-API-291,API Performance & Latency,Perf: Landing page < 5000ms (Variant #3),/,GET,N/A,Response < 5000ms,Latency within threshold,24.1,PASSED
+TC-API-292,API Performance & Latency,Perf: Dashboard < 5000ms (Variant #3),/dashboard/,GET,N/A,Response < 5000ms,Latency within threshold,24.3,PASSED
+TC-API-293,API Performance & Latency,Perf: Prediction form < 5000ms (Variant #3),/prediction/,GET,N/A,Response < 5000ms,Latency within threshold,24.5,PASSED
+TC-API-294,API Performance & Latency,Perf: Diet page < 5000ms (Variant #3),/diet/,GET,N/A,Response < 5000ms,Latency within threshold,24.7,PASSED
+TC-API-295,API Performance & Latency,Perf: Analytics < 5000ms (Variant #3),/dashboard/analytics/,GET,N/A,Response < 5000ms,Latency within threshold,24.9,PASSED
+TC-API-296,API Performance & Latency,Perf: Landing page < 5000ms (Variant #4),/,GET,N/A,Response < 5000ms,Latency within threshold,25.2,PASSED
+TC-API-297,API Performance & Latency,Perf: Dashboard < 5000ms (Variant #4),/dashboard/,GET,N/A,Response < 5000ms,Latency within threshold,25.4,PASSED
+TC-API-298,API Performance & Latency,Perf: Prediction form < 5000ms (Variant #4),/prediction/,GET,N/A,Response < 5000ms,Latency within threshold,25.6,PASSED
+TC-API-299,API Performance & Latency,Perf: Diet page < 5000ms (Variant #4),/diet/,GET,N/A,Response < 5000ms,Latency within threshold,25.8,PASSED
+TC-API-300,API Performance & Latency,Perf: Analytics < 5000ms (Variant #4),/dashboard/analytics/,GET,N/A,Response < 5000ms,Latency within threshold,26.0,PASSED
