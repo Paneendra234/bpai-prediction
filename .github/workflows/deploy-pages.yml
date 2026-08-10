@@ -20,6 +20,10 @@ jobs:
   build:
     name: "build"
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout Code Repository
@@ -81,10 +85,31 @@ jobs:
     name: "deploy"
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.gh_pages.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Build Static Site for Branch Deployment
+        run: |
+          python -m pip install --upgrade pip openpyxl django
+          python scripts/build_pages_site.py
+
+      - name: Deploy to GitHub Pages (Actions Deployment)
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Deploy to gh-pages Branch (Fallback Deployment)
+        id: gh_pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          force_orphan: true
