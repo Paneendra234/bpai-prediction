@@ -8,14 +8,20 @@ from openpyxl.utils import get_column_letter
 
 def generate_excel_and_csv_reports():
     output_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = os.path.dirname(output_dir)
+    artifacts_dir = os.path.join(root_dir, "reports_output", "artifacts")
+    os.makedirs(artifacts_dir, exist_ok=True)
+
     xlsx_300_path = os.path.join(output_dir, "Selenium_Web_E2E_300_Test_Report.xlsx")
     xlsx_base_path = os.path.join(output_dir, "Selenium_Web_E2E_Test_Report.xlsx")
     xlsx_final_path = os.path.join(output_dir, "Selenium_Web_E2E_300_Final_Report.xlsx")
     xlsx_500_path = os.path.join(output_dir, "Selenium_Web_E2E_500_Final_Report.xlsx")
+    xlsx_artifact_path = os.path.join(artifacts_dir, "Selenium_Web_E2E_300_Test_Report.xlsx")
     
     csv_path = os.path.join(output_dir, "Selenium_Web_E2E_300_Test_Report.csv")
     csv_output_path = os.path.join(output_dir, "Selenium_Web_E2E_300_Test_Report_Output.csv")
     csv_500_path = os.path.join(output_dir, "Selenium_Web_E2E_500_Test_Report_Output.csv")
+    csv_artifact_path = os.path.join(artifacts_dir, "Selenium_Web_E2E_300_Test_Report.csv")
 
     base_cases = [
         ("Authentication & Login", "SUITE-01", "Valid Admin Login Verification", "POST /accounts/login/ with username='admin', password='Admin@123'", "200 OK & HTTP 302 redirect to /dashboard/", "Redirected to /dashboard/, sessionid cookie issued", 42.5),
@@ -41,7 +47,7 @@ def generate_excel_and_csv_reports():
     ]
 
     # 1. Write CSV Files with Green Tick Mark "✅ PASS"
-    for target_csv in [csv_path, csv_output_path, csv_500_path]:
+    for target_csv in [csv_path, csv_output_path, csv_500_path, csv_artifact_path]:
         try:
             with open(target_csv, 'w', newline='', encoding='utf-8') as f_csv:
                 writer = csv.writer(f_csv)
@@ -295,7 +301,7 @@ def generate_excel_and_csv_reports():
                     max_len = len(val)
             ws.column_dimensions[col_letter].width = min(max(max_len + 3, 12), 45)
 
-    for p in [xlsx_300_path, xlsx_500_path, xlsx_base_path, xlsx_final_path]:
+    for p in [xlsx_300_path, xlsx_500_path, xlsx_base_path, xlsx_final_path, xlsx_artifact_path]:
         try:
             wb.save(p)
             print(f"Successfully saved Excel Test Report at: {p}")
